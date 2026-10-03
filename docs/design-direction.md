@@ -1,85 +1,81 @@
-# Dirección artística
+# Dirección artística (v2)
 
-## Concepto: «La napolitana de barrio»
+> La v1 (horno ilustrado y pizzas dibujadas en SVG) se sustituyó el 3 de octubre de 2026. El porqué está en `rectificacion-v2.md`.
 
-El negocio cambió su nombre italiano (**Bocca di Forno**, «boca del horno») por **Pizza del Barrio**. La web junta los dos nombres: la *boca del horno* es la imagen principal y *el barrio* marca el tono, la arquitectura y el texto.
+## Concepto: «Napolitana para llevar, del barrio»
 
-**Idea visual en una frase:** *una noche en el Saladar: el horno se enciende a las 19:00, la pizza sale hacia ti y la pides como en el mostrador.*
+Son las palabras del propio negocio (bio de Instagram y logo, «Pizza del Barrio · PARA LLEVAR»). La web cuenta el viaje de la pizza: **horno → manos → caja → tu casa**.
 
-## Signature moment: el horno que dice la verdad
+## Signature moment: «Del horno a la caja»
 
-1. El hero es la boca de un horno de ladrillo con una pizza de mortadela y pistacho dentro, vista en perspectiva.
-2. **El fuego depende del horario real** (hora de Madrid): en horario de apertura hay llamas y la pizza se hornea al cargar la página (las manchas del borde aparecen). Fuera de horario solo quedan brasas y el letrero dice «El horno se enciende hoy a las 19:00» o «Los lunes el horno descansa».
-3. **Al hacer scroll la pizza sale del horno**: se endereza hasta quedar vista desde arriba, crece y el horno se apaga detrás. Después llega la carta.
+Una sección fija mientras se hace scroll, con una caja de cartón kraft construida en CSS 3D:
 
-No es un efecto de adorno. Responde a la pregunta número uno («¿está abierto?»), recuerda el nombre antiguo y enseña el producto.
+1. La caja vacía y abierta. Paso 1: **Encárgala** (teléfono o WhatsApp).
+2. Una Pepperoni real (foto del negocio en Glovo, recortada) cae dentro girando. Paso 2: **Al horno**, a 400–450 °C.
+3. La tapa se cierra y deja ver la impresión: «PIZZA DEL BARRIO · Napolitana para llevar · Passeig del Saladar 67 · 611 77 65 51», con un sello «400–450 °C». Paso 3: **A la caja**.
+4. Aparece una pegatina escrita a rotulador: «¡recién salida!».
 
-## Las pizzas se dibujan desde la carta
+Sale de su modelo de negocio (para llevar), de su logo y de su bio, y acaba en la acción de pedir. Con movimiento reducido, la caja se queda abierta con la pizza dentro.
 
-No hay fotos propias con licencia, y usar fotos de otros restaurantes sería engañar. Por eso cada una de las 24 pizzas se **genera en SVG a partir de sus ingredientes reales** (`src/js/pizza.js`):
+## Fotografía
 
-- borde inflado con **leopardatura** (las manchas de horno que se ven en las fotos de los clientes)
-- salsa según la base: tomate, nata, pesto o sin salsa
-- mozzarella fundida y 40 ingredientes dibujados (mortadela, stracciatella, pistacho, rúcula, crema balsámica, anchoas…)
-- la semilla es el nombre de la pizza, así que cada pizza sale siempre igual
+| Uso | Imagen | Origen |
+|---|---|---|
+| Hero escritorio | Pizza en el horno junto a la llama | Google Maps, subida por el negocio (2024) |
+| Hero móvil y tablet | Llama y pizza, en vertical | Instagram del negocio (nov 2025) |
+| Caja | Pepperoni cenital recortada | Glovo (restaurante) |
+| Carta | Mortadela y pistacho, Prosciutto, Pepperoni, Italiana, 4 Estaciones, Reina, Barbacoa, Calabria, 5 Quesos | Glovo (restaurante) |
+| Margherita en su caja | Mano con la caja abierta | Instagram del negocio |
+| Pizza Trufa y local | Interior con barra | Instagram del negocio |
+| Proceso | 3 clips (masa, horno, jamón y rúcula) | Reel de @ivan.g.lpz para el negocio, con crédito |
+| Antes Bocca di Forno | Fachada antigua | Web oficial archivada |
 
-En la carta, la pizza aparece sobre una **tabla de madera con mango**, como la sirven en el local según las fotos de los clientes.
+Reglas: producto grande, cenital y sin manipular. El proceso va en vertical y en movimiento. Nada de stock ni de ilustraciones en lugar del producto.
 
 ## Color
 
-Sale de la noche (solo abren a partir de las 19:00), del local (paredes verde oliva en las fotos de clientes) y del producto.
-
 | Token | Hex | Origen | Uso |
 |---|---|---|---|
-| `--horno` | `#17100B` | Interior del horno, noche | Fondo general, hero, barrio |
-| `--masa` | `#F4E4C4` | Masa | Texto sobre oscuro (15:1) |
-| `--dough` | `#E9B977` | Borde horneado | Bordes de masa entre secciones, marca |
-| `--fuego` | `#FFB33C` | Llama | Acción principal (llamar). Texto oscuro encima: 10,5:1 |
-| `--oliva` | `#4A5520` | Pared del local | Fondo de la carta. Masa encima: 6,4:1 |
-| `--tomate` | `#B8301A` | Salsa | Sección «¿Cómo la quieres?». Blanco encima: 5,7:1 |
-| `--pesto` | `#9DC45A` | Pesto/albahaca | Abierto ahora, vegetariana, trébol |
-
-Las bases de la carta usan su propio color en los filtros: rojo para tomate, blanco para las blancas y verde para el pesto.
+| `--noche` | `#120D0A` | Solo abren de noche, interior del horno | Hero, caja, proceso, barrio |
+| `--crema` | `#F6EBD7` | Carteles | Texto sobre oscuro (16:1) |
+| `--fuego` | `#FFC86A` | Llama | Destacados del titular, precios |
+| `--kraft` | `#C79D66` | Caja de cartón | Caja, cartel de la Trufa, pie |
+| `--tinta` | `#3B2414` | Impresión de la caja | Texto sobre kraft (5,8:1) |
+| `--albahaca` | `#1E3A26` | Verde de sus carteles | Carta (crema encima: 10,5:1) |
+| `--tomate` | `#B52E18` | Rojo de sus carteles | Botón principal (5,8:1), sección de pedido |
+| `--marker` | `#FF8A3D` | Rótulos de sus reels | Anotaciones y pasos (8,2:1 sobre noche) |
 
 ## Tipografía
 
 | Uso | Familia | Por qué |
 |---|---|---|
-| Titulares, marca, teléfono | **Bagel Fat One** | Letra hinchada y redonda, como el borde de una napolitana. Desenfadada, de barrio y nada de lujo. No se ha usado en ningún proyecto anterior |
-| Texto e interfaz | **Onest** | Grotesca clara y cálida, con buenas cifras para precios, horarios y teléfono |
+| Titulares, precios, impresión de la caja | **Big Shoulders Display** 900 | Mayúsculas condensadas de cartel, como sus avisos («CERRADO POR VACACIONES») y como las cajas impresas |
+| Anotaciones | **Permanent Marker** | El rotulador de sus reels («MASSAGE TIME», «TIME TO GET A TAN»). Una o dos por pantalla |
+| Texto e interfaz | **Onest** | Legible, con buenas cifras. Se mantiene de la v1 |
 
-Las dos están alojadas en el propio dominio (woff2 latino, 58 KB en total). No se carga nada de Google Fonts.
+Las tres están alojadas en local, con woff2 latino (98 KB en total).
 
-## Recursos gráficos
-
-- **Borde de masa con manchas** como separador de secciones (entrada a la carta y al pie), y un borde de salsa en la sección de pedido.
-- **Arco de ladrillo** con dovelas de tonos distintos, iluminadas por el fuego.
-- **«Bocca di Forno» tachado**: el nombre antiguo, perfilado y con un trazo de fuego encima. Cuenta el cambio de nombre sin esconderlo.
-- **Trébol de cuatro hojas**: el propietario firma todas sus respuestas a reseñas con «¡Hasta pronto! 🍀». El pie de la web usa esa misma despedida.
-- **Esquema del cruce** Passeig del Saladar × C/ Carlos Sentí, con el aparcabicis real.
+## Composición
+- Ritmo de color: noche (horno) → noche con caja kraft → verde (carta) → noche (proceso) → tomate (pedido) → noche (barrio) → kraft (pie, el fondo de la caja).
+- La carta está editada: 1 estrella grande, 3 destacadas, 1 «fuera de Glovo» en formato cartel y la lista completa en dos columnas con miniaturas reales cuando hay foto.
 
 ## Movimiento
+- Caja ligada al scroll (momento firma).
+- Clips en bucle, sin sonido, que solo se cargan y reproducen cuando están en pantalla.
+- Brillo de la llama en el hero solo cuando el horno está encendido. El cartel del hero cambia según el horario real.
+- Con `prefers-reduced-motion` no hay sticky, la caja queda estática y los vídeos llevan controles.
 
-Llamas (oscilación en CSS), horneado al cargar (2,2 s), salida del horno ligada al scroll, pizza que «aterriza» en la tabla al cambiar de pizza y halo del mapa. Con `prefers-reduced-motion` todo queda quieto y el hero deja de ser sticky.
+## Lo que se mantiene de la v1
+El estado en vivo (ahora como cartel pegado sobre la foto), la arquitectura one-page, el teléfono gigante, el mapa esquemático, el horario con el día marcado, el consejo para aparcar, «Bocca di Forno» tachado (ahora con la foto de la fachada) y «¡Hasta pronto! 🍀».
 
-## Lo que se descartó para no repetir proyectos anteriores
+## Anti-repetición
+Este proyecto no usa papel crema, tickets ni comandas, cortinas, fachadas que se abren ni nubes de reseñas. Las tipografías no se han usado antes en la agencia. La caja kraft es un objeto propio de este negocio, no un fondo de papel genérico.
 
-Se revisaron las webs de Basilico, Gula, Pegolí, Xato, Peluquería Silvia y HaryThai. Se evitó a propósito:
-
-- fondos de **papel crema**: aquí la base es oscura (horno) y verde (pared)
-- **tickets o comandas** de papel (ya usados en Gula, Xato, Basilico y HaryThai)
-- **fachadas y cortinas** que se abren (Silvia, HaryThai)
-- **nubes de temas de reseñas**: aquí las reseñas se unen a la pizza concreta de la que hablan
-- tipografías anteriores (Yellowtail, Young Serif, Libre Franklin, Bodoni Moda, Hanken, Barlow, Schibsted…)
-- **platos recortados en círculo** sobre mantel (Basilico): aquí la pizza va dibujada y sobre su tabla
-
-## Referencias estudiadas (principios, no layouts)
-
-| Referencia | Qué aprendemos | Qué no copiamos |
-|---|---|---|
-| Pizza Pilgrims (Londres) | Voz con humor, la masa como lema, pedir a un clic | Su universo de marca y su ilustración |
-| Grosso Napoletano (España) | Reservar y pedir siempre a mano | Fidelización y estructura de cadena |
-| Una Pizza Napoletana (NYC) | Avisos de cierre en primer plano, tono personal | Esconder la carta |
-| Casa Papat (Dénia, competencia) | En Dénia se espera Glovo, teléfono y horario visibles | Hero partido y tres bloques genéricos |
-| La Vecchia Roma (Dénia) | La historia del producto convence | Tono de restaurante de puerto |
-| L'Antica Pizzeria da Michele | Poca carta y mucha identidad | La solemnidad |
+## Referencias (principios)
+| Referencia | Principio |
+|---|---|
+| Rudy's (Reino Unido) | Datos concretos que dan confianza (60 s de horno, AVPN). Aquí: 400–450 °C y Bronte |
+| Franco Manca (Londres) | Voz con descaro («No corners cut. Just crusts.»). Aquí: los rótulos del propio pizzero |
+| Pizza Pilgrims (Londres) | Pedir siempre a un toque, con humor |
+| Grosso Napoletano (España) | Pedir y reservar visibles en todo momento |
+| Una Pizza Napoletana (NYC) | Avisos de abierto o cerrado en primer plano |

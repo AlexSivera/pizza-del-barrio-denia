@@ -1,71 +1,73 @@
-# QA — 2 de octubre de 2026
+# QA — v2 (3 de octubre de 2026)
 
-Revisado con Playwright (Chromium) sobre `dist/` servido en local.
+Revisado con Playwright y Chrome sobre `dist/` servido en local. Después se comprobó la URL pública.
 
 ## Viewports
-
 | Tamaño | Resultado |
 |---|---|
-| 1440×900 | Hero sticky con salida del horno, carta en dos columnas con la pala fija, todas las secciones bien |
-| 1280×720 | Hero completo en pantalla. Pala y botones de la carta visibles (tras reducir la tabla a `38vh`) |
-| 768×844 (tablet) | Sin desbordes. Teléfono gigante a ancho completo. Barra fija inferior |
-| 390×844 (móvil) | Sin desbordes horizontales. Hero apilado, filtros con scroll lateral, hoja inferior por pizza, barra fija Llamar/Glovo |
+| 1440×900 | Hero a sangre con la foto real; caja 3D completa en sus cuatro fases (vacía, pizza dentro, cerrándose, cerrada con pegatina); carta, proceso, pedido, barrio y pie bien |
+| 1280×720 | Hero completo en pantalla, sin desbordes |
+| 768×1024 | Hero en formato móvil (foto vertical arriba, texto debajo). Barra fija |
+| 390×844 y 360×740 | Sin desbordes horizontales. La caja cabe con la tapa abierta. Filtros con desplazamiento lateral. Clips en carrusel con *snap* |
 
 ## Funciones
-
 | Prueba | Resultado |
 |---|---|
-| Estado en vivo (reloj simulado): lunes 12:00, domingo 23:00, viernes 22:45, martes 18:00, sábado 23:05 | Textos, horno encendido/apagado y día marcado correctos en todos |
-| Horneado al cargar con el horno encendido | Correcto. Fuera de horario la pizza sale ya horneada |
-| Scroll del hero (`--p` de 0 a 1) | La pizza se endereza, crece y sale. El texto se desvanece y aparece el pie «Mortadela y pistacho» |
-| Hover y foco en filas (escritorio) | Actualizan la pala |
-| Filtros | Con pesto → 2, Vegetarianas → 6 (Margherita, 4 Quesos, Vegetariana, Verona, Cabra, 5 Quesos). Se ocultan los grupos vacíos |
-| Toque en fila (móvil) | Abre `<dialog>` con pizza, ingredientes, precio y cita. Cierra con ×, con Escape y tocando fuera |
-| Barra fija móvil | Se oculta al llegar a «¿Cómo la quieres?» |
-| Enlaces externos | Todos con `rel="noopener"` y aviso para lector de pantalla |
-| `tel:` | +34611776551 en cabecera, hero, pala, hoja, sección de pedido, barra y pie |
-| JSON-LD | Se parsea bien: `Restaurant` con 24 `MenuItem` |
-| Consola | 0 errores, 0 avisos |
+| Estado con reloj simulado: lunes 12:00, domingo 23:00, viernes 22:45, martes 18:00 | Correcto. Cabecera, cartel del hero («Descansa», «Apagado», «Encendido», «Hoy a las 19:00»), brillo de la llama y día marcado |
+| Secuencia de la caja | Pasos 1 → 2 → 3 sincronizados con la pizza que cae, la tapa que se cierra y la pegatina |
+| Filtros | Con pesto 2 · Vegetarianas 6 · Blancas 7 · Todas 24. Se ocultan los grupos vacíos |
+| Vídeos | No se cargan al abrir la página. Al llegar a la sección se cargan y reproducen (540×960, H.264). Al salir se pausan |
+| WhatsApp | `wa.me/34611776551` con un mensaje inicial |
+| Enlaces externos | Todos con `noopener` y aviso para lector de pantalla |
+| JSON-LD | `Restaurant` con 24 `MenuItem` (10 con imagen) e Instagram en `sameAs` |
+| Recursos | 0 errores 404 (se corrigió una miniatura que faltaba). 0 errores de consola |
 
 ## Accesibilidad
+- Un H1 (con «Pizza … en Dénia» para lectores de pantalla), H2 por sección y H3 dentro. Ninguna imagen sin `alt`; las decorativas llevan `alt=""`.
+- Foco visible en naranja en todos los controles. La escena 3D va con `aria-hidden` porque los pasos están en texto.
+- `prefers-reduced-motion`: sin sticky, caja estática con la pizza dentro, los tres pasos visibles y vídeos con controles y sin reproducción automática. Comprobado.
+- Contrastes AA (ver `design-direction.md`).
 
-- Orden de tabulación lógico, empezando por «Saltar a la carta». Foco visible (contorno de 3 px en color fuego) en todos los controles.
-- Un solo H1. H2 por sección y H3 por grupo. El nombre de la pala dejó de ser un H3 para no romper el orden de encabezados.
-- Filtros con `aria-pressed`. La pala se anuncia con `aria-live`. Mapa con `title` y `desc`.
-- Contrastes AA comprobados (ver `design-direction.md`). El más justo es el precio en fuego claro sobre oliva, con 5,25:1.
-- `prefers-reduced-motion`: sin llamas, sin horneado, sin sticky y sin giros. Comprobado.
-- Botones y enlaces táctiles de 44 a 50 px de alto.
+## Peso
+HTML 50 KB, CSS 36 KB, JS 6 KB y fuentes 98 KB. El hero pesa 28 KB en móvil (800 px) y 67 KB en escritorio (1400 px). Las fotos son WebP con `srcset` y carga diferida. Los vídeos (unos 600 KB cada uno) solo se descargan al llegar a su sección.
 
-## Rendimiento
+## Errores encontrados y corregidos
+1. «PARA LLEVAR» se partía en dos líneas → `nowrap` y tamaño según la altura.
+2. La pegatina «time to get a tan» tapaba el titular → ahora apunta a la pizza.
+3. La tapa abierta se salía por arriba → caja más pequeña y más baja, y apertura de 104°.
+4. El sello «400–450 °C» pisaba el texto de la tapa → esquina inferior.
+5. Se veía el borde del plato en el recorte de la pizza → máscara elíptica más ajustada.
+6. «Las que más salen» incluía la Margherita, que no está entre las más vendidas de Glovo → «Las más pedidas y la de siempre».
+7. La nota de la Margherita («la que mejor viaja») no se podía comprobar → «La de siempre, en su caja».
+8. En móvil, el hero tapaba la pizza con el texto → foto arriba sin tapar y titular encima del borde.
+9. Filtros en tres filas en móvil → una fila con desplazamiento.
+10. La foto del local salía estirada (el atributo `height` anulaba el `aspect-ratio`) → `height: auto`.
+11. La foto del local repetía la de la Trufa y dejaba un hueco en escritorio → «Aquí» ocupa todo el ancho, con un recorte del interior.
+12. Faltaba la miniatura de 480 px de Mortadela y pistacho (404) → generada.
+13. Con el horno apagado, el hero se oscurecía demasiado → oscurecimiento más suave.
 
-- Sin frameworks ni dependencias. HTML 64 KB, CSS 26 KB, JS 33 KB (sin comprimir), fuentes 58 KB.
-- Sin imágenes rasterizadas: todo es SVG generado.
-- Las miniaturas de la carta se dibujan en versión ligera y solo cuando la carta se acerca a la pantalla (IntersectionObserver).
+## Autocrítica final (mirada del propietario)
+- **¿«Hostia, qué web»?** Sí, por dos momentos: la foto real de su horno a pantalla completa con «NAPOLITANA PARA LLEVAR», y su caja cerrándose sobre una pizza real con su teléfono impreso.
+- **¿Es suya?** Sí. Usa su lema, sus fotos, su horno, sus manos y sus rótulos, su local, su fachada antigua, su Instagram y el trébol de sus respuestas.
+- **¿Dan hambre las pizzas?** Sí: 10 fotos reales de producto. La ilustración ha desaparecido.
+- **¿Algo hecho «porque sí»?** La fila de datos (400–450 °C, a mano, Bronte) se parece a un patrón habitual, pero los tres datos son concretos y verificados, así que se queda. El trébol que gira es un guiño mínimo.
+- **¿Algo útil pero mediocre?** Hay 14 pizzas sin foto en la lista, que solo llevan un punto de color. Se resolverá con fotos del cliente; inventarlas sería peor.
 
-## Errores encontrados y corregidos durante la revisión
+## Comparación v1 → v2
+| | v1 | v2 |
+|---|---|---|
+| Producto | Pizzas dibujadas en SVG | 10 fotos reales del negocio y 3 clips |
+| Hero | Horno ilustrado | Foto real del horno, con el estado en un cartel |
+| WOW | La pizza dibujada sale del horno | La pizza real entra en su caja y la tapa queda impresa con el teléfono |
+| Identidad | Inventada (verde oliva, Bagel Fat One, logo propio) | Basada en sus materiales: carteles, rotulador, caja kraft, «para llevar» |
+| Carta | 24 filas iguales | Estrella, destacadas, cartel de la Trufa y lista con miniaturas |
+| Personas | Ninguna | Manos del pizzero en vídeo |
+| Pedido | Teléfono y Glovo | Teléfono, WhatsApp y Glovo |
+| Se conserva | — | Estado en vivo, arquitectura, teléfono gigante, mapa, horario, aparcar, Bocca di Forno, «¡Hasta pronto! 🍀», SEO y accesibilidad |
 
-1. El letrero del horno se montaba sobre el titular → ahora va dentro de la boca del horno.
-2. El texto del hero rozaba el arco → horno desplazado al 58 % y texto limitado a `27vw`.
-3. El teléfono gigante partía el «51» en otra línea → `nowrap` y tamaño ajustado por ancho.
-4. «aparcabicis» se solapaba con el nombre de la calle en el mapa → marcador y etiquetas recolocados.
-5. El trébol del pie bajaba a otra línea → `nowrap` y tamaño ajustado.
-6. El borde de masa del pie quedaba tapado por la sección anterior → `z-index`.
-7. La pala de la carta no cabía a 720 px de alto → tabla más pequeña.
-8. Ingredientes demasiado pequeños, mozzarella con aspecto de algodón y espiral de barbacoa poco natural → generador ajustado.
-9. Con `?horno=off` el texto seguía diciendo «Abierto» → corregido.
-
-## Autocrítica final
-
-- **¿Parece hecha para este negocio?** Sí. El horno remite a su nombre antiguo, el verde es el de su pared, la tabla de madera es como la sirven, la despedida es la del dueño y la carta es la suya, con sus 24 pizzas.
-- **¿Qué provoca el WOW?** El horno que está encendido o apagado según la hora real y la pizza que sale hacia ti al hacer scroll. Además, cada pizza se dibuja con sus ingredientes.
-- **Test de intercambiabilidad**: si se cambia de pizzería, el horario del horno, la carta dibujada, «Bocca di Forno» tachado, el cruce del Saladar y el «¡Hasta pronto! 🍀» dejan de tener sentido.
-- **Pendiente honesto**: hacen falta fotos propias del local, y los precios del local están sin confirmar (la web avisa de que son los de Glovo). La sección «¿Cómo la quieres?» sigue siendo una fila de tres columnas. Se mantiene porque son tres canales reales con pesos distintos (el teléfono domina), pero es la parte más convencional de la web.
-
-## Cómo reproducir
-
+## Reproducir
 ```bash
 npm run build
 npm run preview
 ```
-
-Para ver los dos estados del horno fuera de horario: `http://localhost:4321/?horno=on` y `?horno=off`.
+`?horno=on` / `?horno=off` fuerzan el estado del horno. `node scripts/images.mjs` y `node scripts/clips.mjs` regeneran fotos y clips desde `.qa/photos` (material de investigación que no se sube al repositorio).

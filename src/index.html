@@ -3,18 +3,21 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Pizza del Barrio · Pizzería napolitana en Dénia (Saladar) · Para llevar y a domicilio</title>
-<meta name="description" content="Pizza napolitana de barrio en el Passeig del Saladar, 67 (Dénia). 24 pizzas de 10,50 € a 16 €. Llama al 611 77 65 51 para recoger o pide a domicilio con Glovo. De martes a domingo desde las 19:00. Antes Bocca di Forno.">
-<meta name="theme-color" content="#17100B">
+<title>Pizza del Barrio · Pizza napolitana para llevar en Dénia (Saladar)</title>
+<meta name="description" content="Pizza napolitana para llevar en el Passeig del Saladar, 67 (Dénia). Masa estirada a mano y horno a 400–450 °C. Encarga al 611 77 65 51 o por WhatsApp, o pide con Glovo. De martes a domingo desde las 19:00. Antes Bocca di Forno.">
+<meta name="theme-color" content="#120D0A">
 <link rel="canonical" href="{{SITE_URL}}/">
 <meta property="og:type" content="restaurant">
 <meta property="og:url" content="{{SITE_URL}}/">
 <meta property="og:locale" content="es_ES">
-<meta property="og:title" content="Pizza del Barrio · Napolitana de barrio en Dénia">
-<meta property="og:description" content="Masa napolitana, horno a alta temperatura y trato de vecino en el Saladar. Para llevar, a domicilio o aquí.">
+<meta property="og:title" content="Pizza del Barrio · Napolitana para llevar en Dénia">
+<meta property="og:description" content="Horno a 400–450 °C, masa estirada a mano y su caja de cartón. Saladar 67, Dénia.">
+<meta property="og:image" content="{{SITE_URL}}/img/hero-horno-1400.webp">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
-<link rel="preload" href="fonts/bagelfatone-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/bigshouldersdisplay-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="fonts/onest-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" as="image" href="img/hero-horno-1400.webp" imagesrcset="img/hero-horno-800.webp 800w, img/hero-horno-1400.webp 1400w, img/hero-horno-2200.webp 2200w" imagesizes="100vw" media="(min-width: 701px)">
+<link rel="preload" as="image" href="img/hero-horno-movil-700.webp" imagesrcset="img/hero-horno-movil-700.webp 700w, img/hero-horno-movil-1100.webp 1100w" imagesizes="100vw" media="(max-width: 700px)">
 <link rel="stylesheet" href="styles.css">
 <script type="application/ld+json">{{JSONLD}}</script>
 </head>
@@ -23,8 +26,8 @@
 
 <header class="top" data-top>
   <a class="brand" href="#inicio" aria-label="Pizza del Barrio, volver arriba">
-    <span class="brand__mark" aria-hidden="true">{{MARK}}</span>
-    <span class="brand__name">Pizza <span>del</span> Barrio</span>
+    <span class="brand__name">Pizza del Barrio</span>
+    <span class="brand__tag" aria-hidden="true">para llevar</span>
   </a>
   <nav class="top__nav" aria-label="Secciones">
     <a href="#carta">Carta</a>
@@ -32,148 +35,189 @@
     <a href="#barrio">Dónde</a>
   </nav>
   <p class="status" data-status><span class="status__dot" aria-hidden="true"></span><span data-status-text>Mar–dom desde las 19:00</span></p>
-  <a class="btn btn--fire btn--sm top__call" href="tel:+34611776551"><span class="top__call-l">Llamar</span><span class="top__call-n">611 77 65 51</span></a>
+  <a class="icon-btn top__wa" href="{{WHATSAPP}}" target="_blank" rel="noopener" aria-label="Escribir por WhatsApp (se abre en una pestaña nueva)">{{WA_ICON}}</a>
+  <a class="btn btn--tomate btn--sm top__call" href="tel:+34611776551">Llamar <span class="top__call-n">611 77 65 51</span></a>
 </header>
 
 <main>
+  <!-- 1 · El horno -->
   <section class="hero" id="inicio" data-hero data-oven="off" aria-labelledby="hero-t">
-    <div class="hero__stage">
-      <p class="hero__kicker">Pizzería · Saladar, Dénia</p>
-      <h1 class="hero__title" id="hero-t"><span class="l1">Pizza napolitana,</span> <span class="l2">de barrio.</span></h1>
+    <picture class="hero__photo">
+      <source media="(max-width: 700px)" srcset="img/hero-horno-movil-700.webp 700w, img/hero-horno-movil-1100.webp 1100w" sizes="100vw">
+      <img src="img/hero-horno-1400.webp" srcset="img/hero-horno-800.webp 800w, img/hero-horno-1400.webp 1400w, img/hero-horno-2200.webp 2200w" sizes="100vw" width="2200" height="1272" alt="Una pizza dentro del horno de Pizza del Barrio, junto a la llama del quemador" fetchpriority="high">
+    </picture>
+    <span class="hero__glow" aria-hidden="true"></span>
+    <p class="marker hero__tan" aria-hidden="true">time to get a tan 🔥</p>
 
-      <div class="oven">
-        <svg class="oven__svg" viewBox="0 0 600 470" preserveAspectRatio="xMidYMax meet" aria-hidden="true">
-          <defs>
-            <radialGradient id="ov-in" cx="50%" cy="88%" r="75%">
-              <stop offset="0" stop-color="#FFB33C" class="ov-g1"/>
-              <stop offset=".28" stop-color="#E2561E" class="ov-g2"/>
-              <stop offset=".62" stop-color="#5A1A09" class="ov-g3"/>
-              <stop offset="1" stop-color="#140904"/>
-            </radialGradient>
-            <radialGradient id="ov-lit" cx="50%" cy="78%" r="60%">
-              <stop offset="0" stop-color="#FFB33C" stop-opacity=".55"/>
-              <stop offset="1" stop-color="#FFB33C" stop-opacity="0"/>
-            </radialGradient>
-            <clipPath id="ov-mouth"><path d="M130,470V300A170,170 0 0 1 470,300V470Z"/></clipPath>
-          </defs>
-          <!-- Arco de ladrillo -->
-          <path class="oven__bricks" d="M60,470V300A240,240 0 0 1 540,300V470H470V300A170,170 0 0 0 130,300V470Z"/>
-          <g class="oven__joints">{{JOINTS}}</g>
-          <path d="M60,470V300A240,240 0 0 1 540,300V470H470V300A170,170 0 0 0 130,300V470Z" fill="url(#ov-lit)" class="oven__lit"/>
-          <!-- Boca -->
-          <g clip-path="url(#ov-mouth)">
-            <rect x="120" y="120" width="360" height="360" fill="url(#ov-in)" class="oven__in"/>
-            <g class="oven__flames">
-              <path class="flame f1" d="M168,402C150,350 176,318 170,268C200,300 214,322 206,356C222,342 224,318 222,300C246,336 250,380 230,404Z"/>
-              <path class="flame f2" d="M190,404C182,372 196,350 194,322C212,344 220,364 214,386C224,378 230,364 232,352C242,374 238,396 226,406Z"/>
-              <path class="flame f3" d="M420,404C440,360 420,330 428,292C400,320 392,342 398,366C384,354 380,336 382,320C362,350 360,384 376,406Z"/>
-              <path class="flame f4" d="M404,404C412,380 402,362 404,340C390,356 384,372 390,390C380,382 376,372 376,362C366,380 370,398 382,406Z"/>
-            </g>
-            <g class="oven__embers">
-              <circle cx="186" cy="400" r="4"/><circle cx="206" cy="404" r="3"/><circle cx="414" cy="402" r="4"/><circle cx="396" cy="405" r="3"/><circle cx="430" cy="406" r="2.5"/>
-            </g>
-            <rect x="120" y="398" width="360" height="80" fill="#2A140A" opacity=".55"/>
-          </g>
-          <!-- Encimera -->
-          <rect x="30" y="452" width="540" height="18" rx="4" class="oven__ledge"/>
-        </svg>
-        <p class="hero__oven" data-oven-text>De martes a domingo, desde las 19:00</p>
-        <div class="oven__pizza" data-hero-pizza></div>
+    <div class="hero__poster" aria-live="polite">
+      <p class="hero__poster-k">El horno</p>
+      <p class="hero__poster-t" data-oven-title>Abre a las 19:00</p>
+      <p class="hero__poster-s" data-oven-text>De martes a domingo</p>
+    </div>
+
+    <div class="hero__content">
+      <p class="hero__kicker">Pizza del Barrio · Saladar, Dénia</p>
+      <h1 class="hero__title" id="hero-t"><span class="sr">Pizza </span>Napolitana <span>para llevar.</span><span class="sr"> en Dénia</span></h1>
+      <p class="hero__lead">Masa estirada a mano, horno a 400–450 °C y su caja de cartón. Encárgala, pasa por el 67 y te la llevas a casa.</p>
+      <div class="hero__actions">
+        <a class="btn btn--tomate" href="tel:+34611776551">Llamar y encargar <span class="btn__sub">611 77 65 51</span></a>
+        <a class="btn btn--ghost" href="{{WHATSAPP}}" target="_blank" rel="noopener">{{WA_ICON}} WhatsApp<span class="sr"> (se abre en una pestaña nueva)</span></a>
+        <a class="link-arrow" href="{{GLOVO}}" target="_blank" rel="noopener">A domicilio con Glovo <span aria-hidden="true">↗</span><span class="sr"> (se abre en Glovo)</span></a>
       </div>
-
-      <div class="hero__copy">
-        <p class="hero__lead">Masa de borde inflado y manchado por el horno, ingredientes frescos y trato de vecino. Para llevar, a domicilio o aquí mismo, en el Passeig del Saladar.</p>
-        <div class="hero__actions">
-          <a class="btn btn--fire" href="tel:+34611776551">Llamar y encargar <span class="btn__sub">611 77 65 51</span></a>
-          <a class="btn btn--ghost" href="{{GLOVO}}" target="_blank" rel="noopener">A domicilio con Glovo <span aria-hidden="true">↗</span><span class="sr">(se abre en Glovo)</span></a>
-        </div>
-        <p class="hero__proof"><a href="#opiniones"><span class="stars" aria-hidden="true">★</span> 4,9 · 262 reseñas en Google</a></p>
-      </div>
-
-      <p class="hero__caption" data-hero-caption aria-hidden="true"><span>Mortadela y pistacho</span> de las más pedidas · <a href="#carta" tabindex="-1">ver la carta ↓</a></p>
+      <p class="hero__proof"><a href="#opiniones"><span class="stars" aria-hidden="true">★</span> 4,9 · 262 reseñas en Google</a></p>
     </div>
   </section>
 
-  <section class="carta" id="carta" aria-labelledby="carta-t">
-    {{EDGE_CARTA}}
-    <div class="wrap">
-      <header class="carta__head">
-        <h2 class="h2" id="carta-t">La carta</h2>
-        <p class="carta__intro">24 pizzas, de 10,50 € a 16 €. Toca una y verás lo que lleva antes de pedirla.</p>
-        <div class="filters" role="group" aria-label="Filtrar la carta">
-          <button type="button" class="chip" aria-pressed="true" data-filter="all">Todas <span>24</span></button>
-          <button type="button" class="chip chip--roja" aria-pressed="false" data-filter="roja">Con tomate <span>{{N_ROJA}}</span></button>
-          <button type="button" class="chip chip--blanca" aria-pressed="false" data-filter="blanca">Blancas <span>{{N_BLANCA}}</span></button>
-          <button type="button" class="chip chip--verde" aria-pressed="false" data-filter="verde">Con pesto <span>{{N_VERDE}}</span></button>
-          <button type="button" class="chip chip--veg" aria-pressed="false" data-filter="veg">Vegetarianas <span>{{N_VEG}}</span></button>
+  <!-- 2 · Del horno a la caja (momento firma) -->
+  <section class="caja" id="caja" data-caja aria-labelledby="caja-t">
+    <div class="caja__stage">
+      <div class="caja__copy">
+        <h2 class="h2" id="caja-t">Del horno <span>a la caja.</span></h2>
+        <ol class="steps" data-steps>
+          <li class="is-on"><span class="steps__n">1</span><span><strong>Encárgala.</strong> Llama o escribe por WhatsApp al 611 77 65 51.</span></li>
+          <li><span class="steps__n">2</span><span><strong>Al horno.</strong> A 400–450 °C: la masa se hincha y el borde se mancha.</span></li>
+          <li><span class="steps__n">3</span><span><strong>A la caja.</strong> Pasas por el Saladar 67 y te la llevas caliente.</span></li>
+        </ol>
+        <div class="caja__actions">
+          <a class="btn btn--tomate btn--sm" href="tel:+34611776551">Llamar ahora</a>
+          <a class="btn btn--ghost btn--sm" href="{{WHATSAPP}}" target="_blank" rel="noopener">{{WA_ICON}} WhatsApp<span class="sr"> (se abre en una pestaña nueva)</span></a>
         </div>
-        <p class="filters__note" data-veg-note hidden>Las opciones vegetarianas salen en 9 reseñas de Google.</p>
-      </header>
+      </div>
 
-      <div class="carta__body">
-        <div class="peel" data-peel>
-          <div class="peel__board">{{BOARD}}<div class="peel__pizza" data-peel-pizza></div></div>
-          <div class="peel__info" aria-live="polite">
-            <p class="peel__tags" data-peel-tags></p>
-            <p class="peel__name" data-peel-name>Mortadela y pistacho</p>
-            <p class="peel__ing" data-peel-ing>Pesto, mozzarella fior di latte, parmigiano, mortadela, stracciatella y pistachos</p>
-            <p class="peel__price" data-peel-price>16,00 €</p>
-            <blockquote class="peel__quote" data-peel-quote hidden><p></p><footer></footer></blockquote>
-            <div class="peel__actions">
-              <a class="btn btn--fire btn--sm" href="tel:+34611776551">Encargar · 611 77 65 51</a>
-              <a class="btn btn--ghost btn--sm" href="{{GLOVO}}" target="_blank" rel="noopener">Glovo <span aria-hidden="true">↗</span><span class="sr">(se abre en Glovo)</span></a>
+      <div class="scene" aria-hidden="true">
+        <div class="scene__shadow"></div>
+        <div class="box">
+          <div class="box__floor"><span class="box__paper"></span></div>
+          <div class="box__wall box__wall--n"></div>
+          <div class="box__wall box__wall--s"></div>
+          <div class="box__wall box__wall--w"></div>
+          <div class="box__wall box__wall--e"></div>
+          <img class="box__pizza" src="img/caja-pepperoni-600.webp" srcset="img/caja-pepperoni-600.webp 600w, img/caja-pepperoni-1000.webp 1000w" sizes="(max-width: 700px) 80vw, 520px" width="1000" height="1000" alt="" loading="lazy" decoding="async">
+          <div class="box__lid">
+            <div class="box__lid-in"></div>
+            <div class="box__lid-out">
+              <p class="lid__k">Napolitana · para llevar</p>
+              <p class="lid__name">Pizza<br>del Barrio</p>
+              <p class="lid__addr">Passeig del Saladar 67 · Dénia</p>
+              <p class="lid__tel">611 77 65 51</p>
+              <span class="lid__stamp">400–450 °C</span>
             </div>
           </div>
         </div>
+        <p class="marker box__sticker">¡recién salida!</p>
+      </div>
+    </div>
+  </section>
 
-        <div class="menu" data-menu>
-{{MENU}}
-          <aside class="menu__extra" aria-label="Más allá de la carta">
-            <div class="extra extra--secret">
-              <h3 class="h4">Pregunta en el local</h3>
-              <p>No todo está en Glovo. En las reseñas aparece mucho una pizza <strong>con trufa</strong> (8 reseñas) y el <strong>tiramisú</strong> (5). Pregunta por ellos al encargar.</p>
-            </div>
-            <div class="extra">
-              <h3 class="h4">Para beber</h3>
-              <ul class="drinks">
+  <!-- 3 · La carta -->
+  <section class="carta" id="carta" aria-labelledby="carta-t">
+    <div class="wrap">
+      <header class="carta__head">
+        <h2 class="h2" id="carta-t">La carta</h2>
+        <p class="carta__intro">24 napolitanas, de 10,50 € a 16 €. Primero, las que más se piden.</p>
+      </header>
+
+{{MENU_STAR}}
+
+      <div class="tops">
+        <h3 class="h3">Las más pedidas <span class="h3__sub">y la de siempre</span></h3>
+        <ul class="tops__grid">
+{{MENU_TOP}}
+        </ul>
+      </div>
+
+{{LOCAL_ONLY}}
+
+      <div class="all" id="toda-la-carta">
+        <div class="all__head">
+          <h3 class="h3">Toda la carta</h3>
+          <div class="filters" role="group" aria-label="Filtrar la carta">
+            <button type="button" class="chip" aria-pressed="true" data-filter="all">Todas <span>24</span></button>
+            <button type="button" class="chip chip--roja" aria-pressed="false" data-filter="roja">Con tomate <span>{{N_ROJA}}</span></button>
+            <button type="button" class="chip chip--blanca" aria-pressed="false" data-filter="blanca">Blancas <span>{{N_BLANCA}}</span></button>
+            <button type="button" class="chip chip--verde" aria-pressed="false" data-filter="verde">Con pesto <span>{{N_VERDE}}</span></button>
+            <button type="button" class="chip chip--veg" aria-pressed="false" data-filter="veg">Vegetarianas <span>{{N_VEG}}</span></button>
+          </div>
+          <p class="filters__note" data-veg-note hidden>Las opciones vegetarianas salen en 9 reseñas de Google.</p>
+        </div>
+{{MENU_LIST}}
+        <div class="all__foot">
+          <div class="drinks-box">
+            <h4 class="h4">Para beber</h4>
+            <ul class="drinks">
 {{DRINKS}}
-              </ul>
-            </div>
-            <p class="menu__fine">Precios e ingredientes de la carta publicada en Glovo (consultada el 2 de octubre de 2026). En el local pueden variar. Si tienes alergias o intolerancias, dilo al pedir.</p>
-          </aside>
+            </ul>
+          </div>
+          <p class="fine">Precios e ingredientes de la carta publicada en Glovo (consultada el 2 de octubre de 2026). En el local pueden variar. Si tienes alergias o intolerancias, dilo al pedir.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="pedir" id="pedir" aria-labelledby="pedir-t">
-    {{EDGE_PEDIR}}
+  <!-- 4 · Así se hace -->
+  <section class="proceso" id="proceso" aria-labelledby="proceso-t">
     <div class="wrap">
-      <h2 class="h2" id="pedir-t">¿Cómo la quieres?</h2>
-      <ol class="ways">
-        <li class="way way--main">
-          <p class="way__n" aria-hidden="true">1</p>
-          <h3 class="way__t">Para recoger</h3>
-          <p>Llama, encarga y pasa a por ella al Passeig del Saladar, 67. Sin comisiones de por medio.</p>
-          <a class="phone" href="tel:+34611776551" aria-label="Llamar al 611 77 65 51"><span>611</span> <span>77</span> <span>65</span> <span>51</span></a>
+      <header class="proceso__head">
+        <h2 class="h2" id="proceso-t">Así sale <span>una del barrio.</span></h2>
+        <ul class="facts">
+          <li><strong>400–450 °C</strong> el horno</li>
+          <li><strong>A mano</strong> se estira la masa</li>
+          <li><strong>Bronte</strong> el pistacho, de Sicilia</li>
+        </ul>
+      </header>
+      <ol class="clips" data-clips>
+        <li class="clip">
+          <video muted loop playsinline preload="none" poster="media/masa.webp" data-src="media/masa.mp4" aria-label="Manos del pizzero estirando la masa"></video>
+          <p><span class="clip__n">1</span> La masa, a mano</p>
         </li>
-        <li class="way">
-          <p class="way__n" aria-hidden="true">2</p>
-          <h3 class="way__t">A casa</h3>
-          <p>Te la lleva un repartidor de Glovo. Mira en la app si llega a tu calle.</p>
-          <a class="btn btn--ink" href="{{GLOVO}}" target="_blank" rel="noopener">Pedir en Glovo <span aria-hidden="true">↗</span><span class="sr">(se abre en Glovo)</span></a>
+        <li class="clip">
+          <video muted loop playsinline preload="none" poster="media/horno.webp" data-src="media/horno.mp4" aria-label="Una pizza entrando en el horno junto a la llama"></video>
+          <p><span class="clip__n">2</span> Al horno</p>
         </li>
-        <li class="way">
-          <p class="way__n" aria-hidden="true">3</p>
-          <h3 class="way__t">Aquí</h3>
-          <p>Hay mesas dentro. Quienes cenan allí hablan de ambiente tranquilo y buena música. Si venís en grupo, mejor llamad antes.</p>
+        <li class="clip">
+          <video muted loop playsinline preload="none" poster="media/jamon.webp" data-src="media/jamon.mp4" aria-label="Manos poniendo jamón y rúcula sobre una pizza recién horneada"></video>
+          <p><span class="clip__n">3</span> Y lo bueno, encima</p>
         </li>
       </ol>
+      <p class="proceso__credit">Vídeo: <a href="https://www.instagram.com/ivan.g.lpz/" target="_blank" rel="noopener">@ivan.g.lpz</a> para Pizza del Barrio. Los rótulos son suyos.</p>
     </div>
   </section>
 
+  <!-- 5 · Pedir -->
+  <section class="pedir" id="pedir" aria-labelledby="pedir-t">
+    <div class="wrap">
+      <h2 class="h2" id="pedir-t">¿Cómo la quieres?</h2>
+      <div class="pedir__grid">
+        <div class="pedir__main">
+          <p class="pedir__k">Para recoger</p>
+          <p class="pedir__txt">Llama o escribe, encarga y pasa a por ella al Passeig del Saladar, 67. Sin comisiones de por medio.</p>
+          <a class="phone" href="tel:+34611776551" aria-label="Llamar al 611 77 65 51"><span>611</span> <span>77</span> <span>65</span> <span>51</span></a>
+          <div class="pedir__btns">
+            <a class="btn btn--ink" href="tel:+34611776551">Llamar</a>
+            <a class="btn btn--ink-ghost" href="{{WHATSAPP}}" target="_blank" rel="noopener">{{WA_ICON}} WhatsApp<span class="sr"> (se abre en una pestaña nueva)</span></a>
+          </div>
+        </div>
+        <div class="pedir__side">
+          <div class="way">
+            <h3 class="way__t">A casa</h3>
+            <p>Te la lleva un repartidor de Glovo. Mira en la app si llega a tu calle.</p>
+            <a class="btn btn--ink btn--sm" href="{{GLOVO}}" target="_blank" rel="noopener">Pedir en Glovo <span aria-hidden="true">↗</span><span class="sr"> (se abre en Glovo)</span></a>
+          </div>
+
+        </div>
+        <figure class="way way--aqui">
+            <img src="img/local-interior-600.webp" srcset="img/local-interior-600.webp 600w, img/local-interior-1100.webp 1100w" sizes="(max-width: 900px) 92vw, 640px" width="1100" height="1100" alt="El local de Pizza del Barrio por dentro: barra con taburetes, una planta y una pizarra" loading="lazy" decoding="async">
+            <figcaption>
+              <h3 class="way__t">Aquí</h3>
+              <p>Hay barra y mesas dentro. Quienes cenan allí hablan de ambiente tranquilo y buena música. Si venís en grupo, mejor llamad antes.</p>
+            </figcaption>
+          </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6 · El barrio -->
   <section class="barrio" id="barrio" aria-labelledby="barrio-t">
-    {{EDGE_BARRIO}}
     <div class="wrap">
       <h2 class="h2" id="barrio-t">En el Saladar</h2>
       <div class="barrio__grid">
@@ -186,7 +230,7 @@
             <span class="addr__street">Passeig del Saladar, 67</span>
             <span>Local E · 03700 Dénia (Alicante)</span>
           </address>
-          <a class="btn btn--fire btn--sm" href="{{MAPS}}" target="_blank" rel="noopener">Cómo llegar <span aria-hidden="true">↗</span><span class="sr">(abre Google Maps)</span></a>
+          <a class="btn btn--tomate btn--sm" href="{{MAPS}}" target="_blank" rel="noopener">Cómo llegar <span aria-hidden="true">↗</span><span class="sr"> (abre Google Maps)</span></a>
 
           <h3 class="h4">Horario</h3>
           <ul class="week" data-week>
@@ -194,68 +238,60 @@
           </ul>
 
           <h3 class="h4">Para aparcar</h3>
-          <p>A la hora de cenar cuesta encontrar sitio en el Saladar, y las reseñas también lo dicen. Si vienes a recoger, encarga antes por teléfono y entras y sales. En el mismo cruce hay un aparcabicis.</p>
+          <p>A la hora de cenar cuesta encontrar sitio en el Saladar, y las reseñas también lo dicen. Si vienes a recoger, encarga antes y entras y sales. En el mismo cruce hay un aparcabicis.</p>
         </div>
       </div>
 
       <div class="antes">
-        <p class="antes__old" aria-hidden="true">Bocca di Forno</p>
-        <p class="antes__txt">Antes nos conocías como <strong>Bocca di Forno</strong>. Hemos cambiado el nombre, pero la dirección y el teléfono son los mismos.</p>
+        <figure class="antes__photo">
+          <img src="img/fachada-bocca-545.webp" width="545" height="449" alt="La fachada del local cuando se llamaba Bocca di Forno" loading="lazy" decoding="async">
+          <figcaption class="marker">el 67, cuando era Bocca di Forno</figcaption>
+        </figure>
+        <div class="antes__txt">
+          <p class="antes__old" aria-hidden="true">Bocca di Forno</p>
+          <p>Antes nos conocías como <strong>Bocca di Forno</strong>. Hemos cambiado el nombre, pero la dirección, el teléfono y el horno son los mismos.</p>
+          <a class="link-arrow" href="{{INSTAGRAM}}" target="_blank" rel="noopener">{{IG_ICON}} {{INSTAGRAM_HANDLE}} <span aria-hidden="true">↗</span><span class="sr"> (se abre Instagram)</span></a>
+        </div>
       </div>
 
       <figure class="voz" id="opiniones">
         <blockquote><p>«¡La joya del barrio!»</p></blockquote>
-        <figcaption>Título de una reseña en Tripadvisor, septiembre de 2026. En Google, 4,9 de media con 262 reseñas. <a href="{{MAPS}}" target="_blank" rel="noopener">Leer las reseñas <span aria-hidden="true">↗</span><span class="sr">(abre Google Maps)</span></a></figcaption>
+        <figcaption>Título de una reseña en Tripadvisor, septiembre de 2026. En Google, 4,9 de media con 262 reseñas. <a href="{{MAPS}}" target="_blank" rel="noopener">Leer las reseñas <span aria-hidden="true">↗</span><span class="sr"> (abre Google Maps)</span></a></figcaption>
       </figure>
     </div>
   </section>
 </main>
 
 <footer class="pie">
-  {{EDGE_PIE}}
   <div class="wrap">
     <p class="pie__bye">¡Hasta pronto! <span class="clover" aria-hidden="true">{{CLOVER}}</span></p>
+    <div class="pie__stamp" aria-hidden="true">Pizza del Barrio · Napolitana para llevar · Saladar 67 · Dénia ·</div>
     <div class="pie__cols">
       <div>
         <p class="pie__brand">Pizza del Barrio</p>
-        <p>Pizzería napolitana · antes Bocca di Forno</p>
+        <p>Pizza napolitana para llevar · antes Bocca di Forno</p>
       </div>
       <div>
         <p>Passeig del Saladar, 67, local E<br>03700 Dénia (Alicante)</p>
-        <p><a href="tel:+34611776551">611 77 65 51</a></p>
+        <p><a href="tel:+34611776551">611 77 65 51</a> · <a href="{{WHATSAPP}}" target="_blank" rel="noopener">WhatsApp</a></p>
       </div>
       <div>
         <p>Mar, mié, jue y dom: 19:00–22:30<br>Vie y sáb: 19:00–23:00<br>Lunes cerrado</p>
       </div>
       <div>
-        <p><a href="{{GLOVO}}" target="_blank" rel="noopener">Pedir en Glovo</a><br><a href="{{MAPS}}" target="_blank" rel="noopener">Google Maps</a></p>
+        <p><a href="{{GLOVO}}" target="_blank" rel="noopener">Pedir en Glovo</a><br><a href="{{INSTAGRAM}}" target="_blank" rel="noopener">Instagram</a><br><a href="{{MAPS}}" target="_blank" rel="noopener">Google Maps</a></p>
       </div>
     </div>
   </div>
 </footer>
 
 <nav class="dock" data-dock aria-label="Pedir">
-  <a class="dock__call" href="tel:+34611776551"><span class="dock__icon" aria-hidden="true">{{PHONE_ICON}}</span>Llamar <span class="dock__n">611 77 65 51</span></a>
-  <a class="dock__glovo" href="{{GLOVO}}" target="_blank" rel="noopener">Glovo <span aria-hidden="true">↗</span><span class="sr">(se abre en Glovo)</span></a>
+  <a class="dock__call" href="tel:+34611776551">{{PHONE_ICON}} Llamar <span class="dock__n">611 77 65 51</span></a>
+  <a class="dock__wa" href="{{WHATSAPP}}" target="_blank" rel="noopener" aria-label="WhatsApp (se abre en una pestaña nueva)">{{WA_ICON}}</a>
+  <a class="dock__glovo" href="{{GLOVO}}" target="_blank" rel="noopener">Glovo <span aria-hidden="true">↗</span><span class="sr"> (se abre en Glovo)</span></a>
 </nav>
 
-<dialog class="sheet" data-sheet aria-labelledby="sheet-t">
-  <div class="sheet__inner">
-    <button type="button" class="sheet__close" data-sheet-close aria-label="Cerrar">×</button>
-    <div class="sheet__pizza" data-sheet-pizza></div>
-    <p class="peel__tags" data-sheet-tags></p>
-    <h3 class="sheet__name" id="sheet-t" data-sheet-name></h3>
-    <p class="sheet__ing" data-sheet-ing></p>
-    <p class="sheet__price" data-sheet-price></p>
-    <blockquote class="peel__quote" data-sheet-quote hidden><p></p><footer></footer></blockquote>
-    <div class="sheet__actions">
-      <a class="btn btn--fire" href="tel:+34611776551">Encargar · 611 77 65 51</a>
-      <a class="btn btn--ghost" href="{{GLOVO}}" target="_blank" rel="noopener">Pedir en Glovo <span aria-hidden="true">↗</span><span class="sr">(se abre en Glovo)</span></a>
-    </div>
-  </div>
-</dialog>
-
-<script type="application/json" id="menu-data">{{MENU_JSON}}</script>
+<script type="application/json" id="hours-data">{{HOURS_JSON}}</script>
 <script type="module" src="js/main.js"></script>
 </body>
 </html>

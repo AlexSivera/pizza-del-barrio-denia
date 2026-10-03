@@ -39,16 +39,21 @@ Todo lo demás es secundario.
 ## Comportamiento móvil
 
 - Barra fija inferior con **Llamar** y **Glovo**, que se oculta mientras se ve la sección de pedido para no duplicar.
-- En la carta, cada fila lleva una miniatura de su pizza. Al tocarla se abre una hoja inferior (`<dialog>`) con la pizza grande, los ingredientes y los botones de pedido.
-- El hero ocupa como mucho una pantalla y media de scroll. Sin movimiento si el sistema pide reducirlo.
+- En la carta, las pizzas con foto se ven grandes arriba y la lista completa lleva una miniatura real cuando existe. Los filtros van en una fila con desplazamiento lateral.
+- El hero pone la foto del horno arriba, sin tapar, y el titular debajo. La caja ocupa 2,4 pantallas de scroll. Sin movimiento si el sistema pide reducirlo.
 
 ## Comportamiento escritorio
 
-- La carta se divide en dos: la pala con la pizza a la izquierda (fija) y la lista a la derecha. Al pasar el ratón o el foco por una fila, la pizza de la pala cambia.
+- La carta empieza con la estrella a dos columnas, sigue con tres destacadas y el cartel de la Trufa, y termina con la lista completa en dos columnas.
 - La cabecera muestra estado y teléfono en todo momento.
 
-## Elementos diferenciales
+## Elementos diferenciales (v2)
 
-- **Un horno que dice la verdad**: el fuego del hero está encendido en horario de apertura y en brasas cuando está cerrado («El horno se enciende a las 19:00»).
-- **Pizzas dibujadas a partir de la carta**: cada una de las 24 se genera con sus ingredientes (leopardatura en el borde, salsa según la base, mozzarella, toppings). No se usan fotos de otros restaurantes haciéndolas pasar por suyas, y el visitante ve qué lleva cada pizza antes de pedirla.
-- **Reseñas pegadas al producto**: no hay una sección de testimonios suelta. Cada cita aparece junto a la pizza de la que habla.
+- **El horno dice la verdad**: sobre la foto real del horno va pegado un cartel que cambia con el horario («Encendido», «Hoy a las 19:00», «Descansa»). Cuando está abierto, la llama brilla.
+- **Del horno a la caja**: la pizza real entra en su caja kraft y la tapa queda impresa con el teléfono. Es el modelo de negocio (para llevar) convertido en el momento firma.
+- **Carta editada con fotos del negocio**: una estrella (Mortadela y pistacho, de Bronte), las más pedidas, la Trufa fuera de Glovo y la lista completa filtrable.
+- **Personas**: las manos del pizzero en vídeo, con sus propios rótulos.
+- **Reseñas pegadas al producto**: la cita va junto a la pizza de la que habla, y las menciones se cuentan por pizza.
+
+## Cambios de arquitectura en la v2
+Hero (foto) → **Del horno a la caja** (nuevo) → Carta (reorganizada) → **Así sale una del barrio** (nuevo, vídeo) → ¿Cómo la quieres? (con WhatsApp) → En el Saladar → Pie kraft.

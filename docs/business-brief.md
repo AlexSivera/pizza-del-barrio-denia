@@ -68,12 +68,24 @@ Que llamen para encargar (es el canal sin comisión), que pidan por Glovo cuando
 
 **La napolitana de barrio.** No compite con la pizza de autor (NOMADA) ni con el restaurante italiano de puerto (La Vecchia Roma). Ofrece masa napolitana de verdad a precio de cena de diario, con trato de vecino y en una calle de barrio.
 
+## Actualización del 3 de octubre de 2026 (rectificación v2)
+
+- **Instagram oficial: @pizzadelbarriodenia** (1.669 seguidores). Bio: «🔥 Pizza Napolitana para llevar · Paseo del Saladar 67 · 611 77 65 51 · Disponible en Glovo».
+- **Logo real**: insignia «Pizza del Barrio · PARA LLEVAR» (solo a 150 px; hay que pedir el vectorial).
+- **Horno de gas** a 400–450 °C (publicación del negocio, julio 2025, y foto de Google Maps).
+- **Pistacho de Bronte (Sicilia)** para el pesto y la pizza de mortadela.
+- **Pizza Trufa** (enero 2026): crema de trufa, fior di latte, champiñones, jamón serrano, stracciatella y aceite de trufa.
+- **WhatsApp**: «Reserva por WhatsApp o pídelas por teléfono · 611 776 551» (julio 2025).
+- **Local actual**: paredes blancas, barra con taburetes, planta y pizarra (enero 2026). El verde oliva de la v1 venía de una foto antigua de un cliente.
+- Cerraron por vacaciones del 31 de agosto al 9 de septiembre de 2026 y reabrieron el 10 de septiembre.
+- En diciembre de 2025 anunciaron «abierto de lunes a domingo». Google indica ahora lunes cerrado; la web usa Google, que es lo más reciente.
+
 ## Pendiente de confirmar con el negocio
 
 - Si los precios del local coinciden con los de Glovo (las plataformas suelen subirlos).
-- Tipo de horno (Tripadvisor solo dice «High Temperature oven»; algunos directorios dicen «de leña», sin confirmar). La web dice «horno a alta temperatura».
+- Permiso para usar sus fotos y el reel de @ivan.g.lpz fuera de la demo, y originales en alta resolución.
 - Carta de la trufa, postres y cualquier pizza que no esté en Glovo.
-- Si se puede reservar mesa y si atienden WhatsApp en ese número.
+- Si el lunes abren o no (Google e Instagram no coinciden).
 - Datos legales (razón social y NIF) para el aviso legal.
-- Logo oficial: no se ha encontrado. La web propone un logotipo.
+- Logo en vectorial.
 - Fotos propias del local y del horno.
