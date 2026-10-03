@@ -1,0 +1,16 @@
+{
+  "name": "pizza-del-barrio",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Web de Pizza del Barrio (Dénia). HTML, CSS y JS sin dependencias; el build genera la carta desde src/data/menu.mjs.",
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "preview": "node scripts/serve.mjs",
+    "dev": "node scripts/build.mjs && node scripts/serve.mjs",
+    "deploy": "node scripts/deploy.mjs"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
