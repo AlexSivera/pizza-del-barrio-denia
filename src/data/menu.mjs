@@ -92,8 +92,8 @@ export const DRINKS = [
 ];
 
 export const HOURS = {
-  // 0 = domingo … 6 = sábado. Fuente: Google Maps, 2 oct 2026.
-  0: ['19:00', '22:30'],
+  // 0 = domingo … 6 = sábado. Fuente: Google Maps, 3 nov 2026 (el domingo pasó a cerrado).
+  0: null,
   1: null,
   2: ['19:00', '22:30'],
   3: ['19:00', '22:30'],
