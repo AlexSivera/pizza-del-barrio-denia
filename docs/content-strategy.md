@@ -24,6 +24,8 @@ Evitado: «calidad y profesionalidad», «experiencia gastronómica», «autént
 | 24 pizzas, ingredientes y precios | Carta en Glovo, 2 oct 2026. Con aviso de que en el local pueden variar |
 | «Lo más pedido» (Prosciutto, Pepperoni, Mortadela y pistacho) | Sección «Lo más vendido» de Glovo |
 | Trufa (8 reseñas), tiramisú (5), vegetarianas (9), mortadela (7) | Temas de reseñas de Google con su número |
+
+> **11/11/2026:** los recuentos pequeños («Sale en 7 reseñas», «La nombran 8 reseñas», «salen en 9 reseñas») ya no se muestran en la web. Son cifras bajas y pueden restar en lugar de sumar. Se mantienen como datos de investigación, y en la web solo queda el 4,9 de media con el total de reseñas.
 | Cita en Italiana | Reseña de Google, literal |
 | «¡La joya del barrio!» | Título de una reseña en Tripadvisor, sep. 2026 |
 | 4,9 con 262 reseñas | Google Maps, 2 oct 2026 |

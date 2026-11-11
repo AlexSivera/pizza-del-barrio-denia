@@ -133,12 +133,10 @@ if (reduceMotion) {
 /* ---------- Filtros de la carta */
 const chips = $$('.chip');
 const rows = $$('.row');
-const vegNote = $('[data-veg-note]');
 for (const c of chips) {
   c.addEventListener('click', () => {
     const f = c.dataset.filter;
     chips.forEach((x) => x.setAttribute('aria-pressed', String(x === c)));
-    vegNote.hidden = f !== 'veg';
     for (const r of rows) r.hidden = !(f === 'all' || (f === 'veg' ? r.hasAttribute('data-veg') : r.dataset.group === f));
     for (const g of $$('.group')) g.hidden = !$$('.row', g).some((r) => !r.hidden);
   });

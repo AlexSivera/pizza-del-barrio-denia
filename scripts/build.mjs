@@ -25,7 +25,6 @@ function photo(name, widths, sizes, alt, { cls = '', eager = false } = {}) {
 const tags = (p, extra = '') => [
   p.top ? '<span class="tag tag--top">Lo más pedido en Glovo</span>' : '',
   p.veg ? '<span class="tag tag--veg">Vegetariana</span>' : '',
-  p.mentions ? `<span class="tag tag--rev">Sale en ${p.mentions} reseñas</span>` : '',
   extra,
 ].join('');
 
@@ -71,7 +70,6 @@ function localHtml() {
           <p class="cartel__k">Fuera de Glovo</p>
           <h3 class="cartel__name" id="trufa-t">Pizza ${esc(p.name)}</h3>
           <p class="cartel__ing">${esc(p.ingredients)}.</p>
-          <p class="cartel__rev">La nombran ${p.mentions} reseñas de Google.</p>
           <p class="marker cartel__note">${esc(p.note)}</p>
         </div>
       </article>`;
