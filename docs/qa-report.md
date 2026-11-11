@@ -54,6 +54,11 @@ HTML 50 KB, CSS 36 KB, JS 6 KB y fuentes 98 KB. El hero pesa 28 KB en móvil (80
 - **¿Algo útil pero mediocre?** La lista mezclaba filas con foto y sin foto. Se corrigió el 11/11/2026: ahora va entera en formato pizarra, sin fotos. Las fotos se reservan para la estrella, las destacadas y la Trufa.
 - **¿Algo que no le interese al negocio?** La referencia a Bocca di Forno. Se quitó el 11/11/2026 de la web, la meta description y el JSON-LD. El horario del pie, que aún abría el domingo, se corrigió también.
 
+## Animación de la caja, revisión del 11/11/2026
+Problemas encontrados con fotogramas en 12 puntos del scroll: la pizza aparecía de la nada y el paso 2 («Al horno») no coincidía con lo que se veía; el 45 % del scroll no movía nada; la rueda del ratón iba a saltos del 6 %; la pizza ocupaba el 60 % de la caja; la pegatina flotaba 40 px por encima; y en móvil la caja cerrada se quedaba abajo con un hueco vacío encima.
+
+Corregido: la pizza baja desde lo alto con un halo de calor, hay vapor, la pizza llena la caja, la pegatina va pegada a la tapa, la caja cerrada se centra, la animación tiene inercia (un golpe de rueda se reparte en unos 250 ms) y la sección es más corta (1.080 px de scroll en escritorio y 844 en móvil). Durante la corrección se vio que la pizza entraba por detrás de la tapa y que el halo se mezclaba con ella (mismo plano 3D); las dos cosas están corregidas. Sin errores de consola ni desbordes, y movimiento reducido comprobado.
+
 ## Comparación v1 → v2
 | | v1 | v2 |
 |---|---|---|

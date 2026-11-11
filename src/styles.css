@@ -158,7 +158,7 @@ button { font: inherit; color: inherit; }
 .stars { color: var(--fuego); }
 
 /* ---------- 2 · Del horno a la caja */
-.caja { position: relative; height: 290vh; background: radial-gradient(70% 60% at 68% 55%, #2A1B12 0%, var(--noche) 70%); }
+.caja { position: relative; height: 220vh; background: radial-gradient(70% 60% at 68% 55%, #2A1B12 0%, var(--noche) 70%); }
 .caja__stage {
   --p: 0;
   position: sticky; top: 0; height: 100vh; height: 100svh; overflow: hidden;
@@ -178,11 +178,12 @@ button { font: inherit; color: inherit; }
 
 /* La escena 3D */
 .scene { --s: min(30vw, 44vh, 460px); position: relative; height: calc(var(--s) * 1.45); display: grid; place-items: center; perspective: 1500px; perspective-origin: 50% 20%; }
-.scene__shadow { position: absolute; left: 50%; top: 74%; width: calc(var(--s) * 1.25); height: calc(var(--s) * .55); transform: translate(-50%, -50%); background: radial-gradient(closest-side, rgba(0, 0, 0, .7), transparent); filter: blur(6px); }
+.scene { --rise: .2; --zoom: .06; }
+.scene__shadow { position: absolute; left: 50%; top: 74%; width: calc(var(--s) * 1.25); height: calc(var(--s) * .55); transform: translate(-50%, calc(-50% - var(--lift, 0) * var(--s) * var(--rise))) scale(calc(1 + var(--lift, 0) * var(--zoom))); background: radial-gradient(closest-side, rgba(0, 0, 0, .7), transparent); filter: blur(6px); }
 .box {
   --h: calc(var(--s) * .1);
   position: relative; width: var(--s); height: var(--s); transform-style: preserve-3d;
-  transform: translateY(calc(var(--s) * .46 - var(--lift, 0) * var(--s) * .14)) rotateX(54deg) rotateZ(calc(-14deg + var(--turn, 0) * 8deg));
+  transform: translateY(calc(var(--s) * .46 - var(--lift, 0) * var(--s) * var(--rise))) scale(calc(1 + var(--lift, 0) * var(--zoom))) rotateX(54deg) rotateZ(calc(-14deg + var(--turn, 0) * 8deg));
 }
 .box > div, .box > img { position: absolute; left: 0; top: 0; }
 .kraft-face { background-color: var(--kraft); background-image: var(--kraft-tex); }
@@ -198,11 +199,31 @@ button { font: inherit; color: inherit; }
 .box__wall--e { left: var(--s) !important; transform: rotateY(-90deg); filter: brightness(1.05); }
 .box__wall--w::after, .box__wall--e::after { inset: 0 auto 0 0; width: 22%; height: auto; background: repeating-linear-gradient(0deg, rgba(90, 60, 25, .5) 0 2px, transparent 2px 6px); }
 
-.box__pizza {
-  width: calc(var(--s) * .88); height: calc(var(--s) * .88); left: 6% !important; top: 6% !important;
-  transform: translateZ(calc(2px + var(--drop, 1) * var(--s) * 1.4)) rotateZ(calc(var(--drop, 1) * -50deg)) scale(calc(1 + var(--drop, 1) * .15));
-  opacity: calc(1.6 - var(--drop, 1) * 1.6);
-  filter: drop-shadow(0 6px 6px rgba(60, 30, 10, .35));
+/* La pizza sale del horno: baja desde lo alto, por delante de la tapa, inclinada como al resbalar de la pala, y aterriza girando. */
+.box__pizza, .box__heat {
+  width: var(--s); height: var(--s); left: 0 !important; top: 0 !important;
+  transform: translate3d(0, calc(var(--drop, 1) * var(--s) * .05), calc(3px + var(--drop, 1) * var(--s) * 1.7)) rotateX(calc(var(--drop, 1) * 18deg)) rotateZ(calc(var(--drop, 1) * -70deg));
+  will-change: transform;
+}
+.box__pizza { opacity: var(--pzo, 0); filter: drop-shadow(0 6px 6px rgba(60, 30, 10, .35)); }
+/* Calor: halo naranja bajo la pizza que se apaga al reposar en la caja */
+.box__heat { margin-top: -1px; background: radial-gradient(closest-side, rgba(255, 150, 50, .95) 70%, rgba(255, 110, 30, .5) 84%, rgba(255, 90, 20, 0) 100%); opacity: calc(var(--heat, 1) * var(--pzo, 0) * .85); filter: blur(calc(var(--s) * .03)); scale: 1.06; translate: 0 0 -2px; }
+/* Vapor: tres hilos que suben de la pizza, de pie frente a la cámara */
+.box__steam {
+  left: 25% !important; top: calc(50% - var(--s) * .7) !important; width: 50%; height: calc(var(--s) * .7);
+  display: flex; justify-content: space-around; align-items: flex-end; pointer-events: none;
+  transform-origin: 50% 100%; transform: translateZ(8px) rotateZ(calc(14deg - var(--turn, 0) * 8deg)) rotateX(-54deg);
+  opacity: var(--steam, 0);
+}
+.box__steam svg { width: 22%; height: 100%; overflow: visible; filter: blur(3px); }
+.box__steam path { fill: none; stroke: rgba(255, 246, 232, .62); stroke-width: 6; stroke-linecap: round; opacity: 0; }
+.is-steaming .box__steam path { animation: steam 2.6s ease-out infinite; }
+.is-steaming .box__steam svg:nth-child(2) path { animation-delay: -.9s; animation-duration: 3s; }
+.is-steaming .box__steam svg:nth-child(3) path { animation-delay: -1.7s; animation-duration: 2.8s; }
+@keyframes steam {
+  0% { opacity: 0; transform: translateY(18%) scaleY(.7); }
+  35% { opacity: 1; }
+  100% { opacity: 0; transform: translateY(-28%) scaleY(1.05); }
 }
 .box__lid {
   width: var(--s); height: var(--s); transform-style: preserve-3d; transform-origin: top;
@@ -225,12 +246,14 @@ button { font: inherit; color: inherit; }
   border: calc(var(--s) * .008) solid var(--tomate); color: var(--tomate);
   font: 800 calc(var(--s) * .028)/1 var(--f-text); text-align: center; transform: rotate(14deg); mix-blend-mode: multiply; opacity: .85;
 }
+/* Pegatina: cae sobre la esquina de la tapa con un golpe seco */
 .box__sticker {
-  position: absolute; left: 50%; top: 30%; z-index: 3;
-  padding: 8px 16px 10px; background: #FFF6E8; color: var(--tomate); font-size: clamp(1.1rem, 2.2vw, 1.8rem);
-  box-shadow: 0 10px 24px -8px rgba(0, 0, 0, .6); border-radius: 3px;
-  transform: translate(-50%, 0) rotate(-6deg) scale(var(--stick, 0)); transition: transform .35s cubic-bezier(.3, 1.6, .5, 1);
+  position: absolute; left: -5%; top: 4%; margin: 0; white-space: nowrap;
+  padding: .3em .7em .38em; background: #FFF6E8; color: var(--tomate); font-size: calc(var(--s) * .075); line-height: 1;
+  box-shadow: 0 calc(var(--s) * .012) calc(var(--s) * .02) rgba(40, 20, 5, .35); border-radius: 2px;
+  opacity: 0; transform: rotate(-24deg) scale(1.9); transition: opacity .12s, transform .32s cubic-bezier(.2, 1.5, .45, 1);
 }
+.is-stuck .box__sticker { opacity: 1; transform: rotate(-10deg) scale(1); }
 
 /* ---------- 3 · Carta (verde de sus carteles) */
 .carta { position: relative; background: var(--albahaca); color: var(--crema); padding: clamp(80px, 10vw, 130px) 0 clamp(70px, 9vw, 120px); }
@@ -423,14 +446,14 @@ button { font: inherit; color: inherit; }
   .hero__title { font-size: clamp(3.6rem, 19vw, 6rem); }
   .hero__actions .btn { flex: 1 1 100%; }
 
-  .caja { height: 240vh; }
+  .caja { height: 200vh; }
   .caja__stage { grid-template-columns: 1fr; grid-template-rows: auto 1fr; align-items: start; gap: 6px; padding-top: calc(var(--top-h) + 14px); }
   .caja__copy .h2 { font-size: clamp(2.6rem, 12vw, 4rem); }
   .steps { margin: 12px 0 0; min-height: 3.2em; }
   .steps li { display: none; transform: none; }
   .steps li.is-on { display: grid; }
   .caja__actions { display: none; }
-  .scene { --s: min(70vw, 42vh, 360px); height: 100%; align-self: center; }
+  .scene { --s: min(70vw, 42vh, 360px); --rise: .42; --zoom: .14; height: 100%; align-self: center; }
 
   .filters { flex-wrap: nowrap; overflow-x: auto; margin: 0 calc(var(--gutter) * -1); padding: 4px var(--gutter); scrollbar-width: none; }
   .filters::-webkit-scrollbar { display: none; }

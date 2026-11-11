@@ -71,38 +71,63 @@ const onScrollTop = () => top.classList.toggle('is-solid', scrollY > 40);
 addEventListener('scroll', onScrollTop, { passive: true });
 onScrollTop();
 
-/* ---------- Del horno a la caja: la pizza cae, la tapa se cierra, aparece el sello */
+/* ---------- Del horno a la caja
+   La pizza sale del horno (cae con brillo de calor), humea en la caja abierta,
+   la tapa se cierra, la caja sube al centro y la pegatina cae sobre la tapa. */
 const caja = $('[data-caja]');
 const stage = $('.caja__stage', caja);
 const steps = $$('[data-steps] li');
+const easeInOut = (t) => (t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2);
+const setVar = (k, v) => stage.style.setProperty(k, v.toFixed(3));
+let activeStep = -1;
 
 function setBox(p) {
-  const drop = 1 - ease(seg(p, 0.12, 0.42));   // 1 = arriba, 0 = dentro de la caja
-  const open = 1 - ease(seg(p, 0.5, 0.78));    // 1 = tapa abierta, 0 = cerrada
-  const stick = seg(p, 0.84, 0.9) > 0 ? 1 : 0;
-  stage.style.setProperty('--drop', drop.toFixed(3));
-  stage.style.setProperty('--open', open.toFixed(3));
-  stage.style.setProperty('--lift', ease(seg(p, 0.78, 0.95)).toFixed(3));
-  stage.style.setProperty('--turn', p.toFixed(3));
-  stage.style.setProperty('--stick', String(stick));
-  const active = p < 0.12 ? 0 : p < 0.5 ? 1 : 2;
-  steps.forEach((li, i) => li.classList.toggle('is-on', i === active));
+  const drop = 1 - ease(seg(p, 0.04, 0.34));               // 1 = saliendo del horno, 0 = en la caja
+  const open = 1 - easeInOut(seg(p, 0.48, 0.74));          // 1 = tapa abierta, 0 = cerrada
+  const steam = seg(p, 0.24, 0.34) * (1 - seg(p, 0.5, 0.64));
+  setVar('--drop', drop);
+  setVar('--pzo', clamp01((1 - drop) * 6));                // entra rápido: nunca se ve «aparecer» en medio
+  setVar('--heat', 1 - ease(seg(p, 0.3, 0.62)));           // el brillo naranja se apaga al reposar
+  setVar('--steam', steam);
+  setVar('--open', open);
+  setVar('--lift', easeInOut(seg(p, 0.66, 0.88)));         // la caja cerrada sube al centro y se acerca
+  setVar('--turn', p);
+  stage.classList.toggle('is-steaming', steam > 0.01);
+  stage.classList.toggle('is-stuck', p > 0.86);
+  const active = p < 0.04 ? 0 : p < 0.48 ? 1 : 2;
+  if (active !== activeStep) {
+    activeStep = active;
+    steps.forEach((li, i) => li.classList.toggle('is-on', i === active));
+  }
 }
 
-let ticking = false;
-function onCaja() {
-  ticking = false;
+// La animación sigue al scroll con inercia (τ ≈ 90 ms): con rueda de ratón no va a saltos.
+let target = 0, cur = 0, raf = 0, last = 0;
+function measure() {
   const r = caja.getBoundingClientRect();
-  const total = r.height - innerHeight;
-  setBox(clamp01(-r.top / Math.max(total, 1)));
+  target = clamp01(-r.top / Math.max(r.height - innerHeight, 1));
 }
+function loop(t) {
+  const dt = last ? Math.min(64, t - last) : 16;
+  last = t;
+  cur += (target - cur) * (1 - Math.exp(-dt / 90));
+  if (Math.abs(target - cur) < 0.0005) cur = target;
+  setBox(cur);
+  if (cur !== target) raf = requestAnimationFrame(loop);
+  else { raf = 0; last = 0; }
+}
+function kick() { measure(); if (!raf) raf = requestAnimationFrame(loop); }
+
 if (reduceMotion) {
-  setBox(0.45); // estática: pizza dentro y caja abierta, que es lo que da hambre
+  setBox(0.4); // estática: pizza dentro y caja abierta, que es lo que da hambre
+  stage.classList.remove('is-steaming');
   steps.forEach((li) => li.classList.add('is-on'));
 } else {
-  addEventListener('scroll', () => { if (!ticking) { ticking = true; requestAnimationFrame(onCaja); } }, { passive: true });
-  addEventListener('resize', onCaja);
-  onCaja();
+  addEventListener('scroll', kick, { passive: true });
+  addEventListener('resize', kick);
+  measure();
+  cur = target; // al recargar a mitad de página, sin animar desde cero
+  setBox(cur);
 }
 
 /* ---------- Filtros de la carta */

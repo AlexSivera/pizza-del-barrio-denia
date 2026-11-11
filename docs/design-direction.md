@@ -11,9 +11,12 @@ Son las palabras del propio negocio (bio de Instagram y logo, «Pizza del Barrio
 Una sección fija mientras se hace scroll, con una caja de cartón kraft construida en CSS 3D:
 
 1. La caja vacía y abierta. Paso 1: **Encárgala** (teléfono o WhatsApp).
-2. Una Pepperoni real (foto del negocio en Glovo, recortada) cae dentro girando. Paso 2: **Al horno**, a 400–450 °C.
-3. La tapa se cierra y deja ver la impresión: «PIZZA DEL BARRIO · Napolitana para llevar · Passeig del Saladar 67 · 611 77 65 51», con un sello «400–450 °C». Paso 3: **A la caja**.
-4. Aparece una pegatina escrita a rotulador: «¡recién salida!».
+2. Una Pepperoni real (foto del negocio en Glovo, recortada) baja desde lo alto, por delante de la tapa, inclinada como al resbalar de la pala. Un halo naranja de calor se apaga cuando reposa, y llena la caja como una napolitana de verdad. Paso 2: **Sale del horno**, a 400–450 °C.
+3. Mientras reposa salen tres hilos de vapor.
+4. La tapa se cierra y deja ver la impresión: «PIZZA DEL BARRIO · Napolitana para llevar · Passeig del Saladar 67 · 611 77 65 51», con un sello «400–450 °C». Paso 3: **A la caja**.
+5. La caja cerrada sube al centro y se acerca un poco. La pegatina «¡recién salida!», a rotulador, cae sobre la esquina de la tapa con un golpe seco.
+
+La animación sigue al scroll con inercia (τ ≈ 90 ms), así que con la rueda del ratón no va a saltos. La sección ocupa 220 vh en escritorio y 200 vh en móvil (antes 290 y 240), sin tramos muertos. Revisada el 11/11/2026.
 
 Sale de su modelo de negocio (para llevar), de su logo y de su bio, y acaba en la acción de pedir. Con movimiento reducido, la caja se queda abierta con la pizza dentro.
 
