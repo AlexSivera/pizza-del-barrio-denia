@@ -166,6 +166,14 @@
           <li><strong>Bronte</strong> el pistacho, de Sicilia</li>
         </ul>
       </header>
+      <div class="reel" data-reel>
+      <!-- En móvil: formato historia (un clip a la vez, barras de progreso, tocar para cambiar). En escritorio: los tres en fila. -->
+      <div class="reel__ui">
+        <div class="reel__bars" aria-hidden="true"><span><i></i></span><span><i></i></span><span><i></i></span></div>
+        <button type="button" class="reel__prev" data-reel-prev aria-label="Clip anterior"></button>
+        <button type="button" class="reel__play" data-reel-play aria-label="Pausar"></button>
+        <button type="button" class="reel__next" data-reel-next aria-label="Clip siguiente"></button>
+      </div>
       <ol class="clips" data-clips>
         <li class="clip">
           <video muted loop playsinline preload="none" poster="media/masa.webp" data-src="media/masa.mp4" aria-label="Manos del pizzero estirando la masa"></video>
@@ -180,6 +188,7 @@
           <p><span class="clip__n">3</span> Y lo bueno, encima</p>
         </li>
       </ol>
+      </div>
       <p class="proceso__credit">Vídeo: <a href="https://www.instagram.com/ivan.g.lpz/" target="_blank" rel="noopener">@ivan.g.lpz</a> para Pizza del Barrio. Los rótulos son suyos.</p>
     </div>
   </section>

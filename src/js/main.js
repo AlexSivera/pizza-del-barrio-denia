@@ -142,25 +142,63 @@ for (const c of chips) {
   });
 }
 
-/* ---------- Vídeos del proceso: se cargan al acercarse y solo se reproducen si se ven */
+/* ---------- Vídeos del proceso
+   Escritorio: los tres en fila, en bucle, solo mientras se ven.
+   Móvil (≤600 px): formato historia, como el reel original. Un clip a la vez con barras de progreso;
+   al acabar pasa al siguiente; tocar a la izquierda o a la derecha cambia de clip y en el centro pausa. */
+const reel = $('[data-reel]');
 const videos = $$('[data-clips] video');
-if (!reduceMotion && 'IntersectionObserver' in window) {
-  const io = new IntersectionObserver((entries) => {
-    for (const e of entries) {
-      const v = e.target;
-      if (e.isIntersecting) {
-        if (!v.src) { v.src = v.dataset.src; v.load(); }
-        v.play().catch(() => {});
-      } else if (v.src) {
-        v.pause();
-      }
-    }
-  }, { threshold: 0.35 });
-  videos.forEach((v) => io.observe(v));
-} else {
-  // Sin movimiento: solo el póster; el vídeo se puede abrir con los controles.
-  videos.forEach((v) => { v.controls = true; v.src = v.dataset.src; });
+const clipItems = $$('[data-clips] .clip');
+const bars = $$('.reel__bars i', reel);
+const playBtn = $('[data-reel-play]', reel);
+const storyMQ = matchMedia('(max-width: 600px)');
+const load = (v) => { if (!v.src) { v.src = v.dataset.src; v.load(); } };
+let inView = false, current = 0, paused = reduceMotion, barRaf = 0;
+
+function paintBars() {
+  bars.forEach((b, i) => {
+    const v = videos[i];
+    const f = i < current ? 1 : i > current ? 0 : (v.duration ? v.currentTime / v.duration : 0);
+    b.style.transform = `scaleX(${f})`;
+  });
+  barRaf = storyMQ.matches && inView && !paused ? requestAnimationFrame(paintBars) : 0;
 }
+
+function sync() {
+  const story = storyMQ.matches;
+  reel.classList.toggle('is-story', story);
+  videos.forEach((v, i) => {
+    v.loop = !story;
+    const shown = story ? i === current : true;
+    clipItems[i].classList.toggle('is-on', story && i === current);
+    if (story) clipItems[i].setAttribute('aria-hidden', String(!shown)); else clipItems[i].removeAttribute('aria-hidden');
+    if (inView && shown && !paused) { load(v); v.play().catch(() => {}); }
+    else if (v.src) v.pause();
+  });
+  if (story && inView) load(videos[(current + 1) % videos.length]); // el siguiente, ya preparado
+  playBtn.setAttribute('aria-label', paused ? 'Reproducir' : 'Pausar');
+  reel.classList.toggle('is-paused', paused);
+  if (story && !barRaf) paintBars();
+}
+
+function go(i) {
+  current = (i + videos.length) % videos.length;
+  const v = videos[current];
+  if (v.src) v.currentTime = 0;
+  sync();
+}
+
+videos.forEach((v, i) => v.addEventListener('ended', () => { if (storyMQ.matches && i === current) go(current + 1); }));
+$('[data-reel-prev]', reel).addEventListener('click', () => go(current - 1));
+$('[data-reel-next]', reel).addEventListener('click', () => go(current + 1));
+playBtn.addEventListener('click', () => { paused = !paused; sync(); });
+storyMQ.addEventListener('change', sync);
+
+// Sin movimiento: nada arranca solo. En escritorio, controles nativos; en móvil, el botón central reproduce.
+if (reduceMotion) videos.forEach((v) => { v.controls = !storyMQ.matches; v.src = v.dataset.src; }); // preload=none: solo el póster hasta que se pulse
+if ('IntersectionObserver' in window) {
+  new IntersectionObserver(([e]) => { inView = e.isIntersecting; sync(); }, { threshold: 0.35 }).observe($('[data-clips]'));
+} else { inView = true; sync(); }
 
 /* ---------- Barra móvil: se esconde donde ya hay un teléfono enorme */
 const dock = $('[data-dock]');

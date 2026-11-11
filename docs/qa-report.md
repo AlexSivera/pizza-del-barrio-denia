@@ -59,6 +59,10 @@ Problemas encontrados con fotogramas en 12 puntos del scroll: la pizza aparecía
 
 Corregido: la pizza baja desde lo alto con un halo de calor, hay vapor, la pizza llena la caja, la pegatina va pegada a la tapa, la caja cerrada se centra, la animación tiene inercia (un golpe de rueda se reparte en unos 250 ms) y la sección es más corta (1.080 px de scroll en escritorio y 844 en móvil). Durante la corrección se vio que la pizza entraba por detrás de la tapa y que el halo se mezclaba con ella (mismo plano 3D); las dos cosas están corregidas. Sin errores de consola ni desbordes, y movimiento reducido comprobado.
 
+## Móvil, revisión del 11/11/2026 (2)
+- **Caja:** en pantallas de 664–667 px de alto (móviles con la barra del navegador visible), la tapa abierta subía unos 35 px por encima del texto del paso 2, y el fondo de la caja quedaba bajo la barra fija. Ahora la caja se dimensiona con el hueco real que queda entre el texto y la barra (container queries; la caja abierta mide unas 1,9 veces su lado), y en móviles bajos el titular y los pasos son más compactos. Comprobado en 375×667, 390×664, 360×740, 390×844 y 412×915.
+- **Vídeos:** el carrusel dejaba ver un vídeo y medio. Ahora van en formato historia. Comprobado: no carga nada hasta llegar a la sección; arranca al verse; precarga el siguiente; pasa al siguiente al acabar; tocar a la izquierda o a la derecha cambia de clip y en el centro pausa. Con movimiento reducido no arranca solo. Tablet y escritorio siguen con los tres a la vez. Sin errores ni desbordes.
+
 ## Comparación v1 → v2
 | | v1 | v2 |
 |---|---|---|

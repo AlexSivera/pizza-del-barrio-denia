@@ -63,7 +63,7 @@ Las tres están alojadas en local, con woff2 latino (98 KB en total).
 
 ## Movimiento
 - Caja ligada al scroll (momento firma).
-- Clips en bucle, sin sonido, que solo se cargan y reproducen cuando están en pantalla.
+- Clips sin sonido que solo se cargan y reproducen cuando están en pantalla. En escritorio y tablet, los tres en fila y en bucle. En móvil (≤600 px), formato historia, como el reel del que salen: un clip a la vez con barras de progreso; al acabar pasa al siguiente; se toca a la izquierda o a la derecha para cambiar y en el centro para pausar. Sustituye al carrusel horizontal, en el que se veía un vídeo y medio.
 - Brillo de la llama en el hero solo cuando el horno está encendido. El cartel del hero cambia según el horario real.
 - Con `prefers-reduced-motion` no hay sticky, la caja queda estática y los vídeos llevan controles.
 
