@@ -1,6 +1,6 @@
 # Pizza del Barrio — web
 
-Pizza napolitana para llevar en el Passeig del Saladar, 67 (Dénia). Antes se llamaba Bocca di Forno.
+Pizza napolitana para llevar en el Passeig del Saladar, 67 (Dénia).
 
 Publicada en GitHub Pages: https://alexsivera.github.io/pizza-del-barrio-denia/
 

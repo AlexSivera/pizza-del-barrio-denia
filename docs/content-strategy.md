@@ -30,7 +30,6 @@ Evitado: «calidad y profesionalidad», «experiencia gastronómica», «autént
 | Barra y mesas dentro, ambiente tranquilo, buena música | Reseñas (tipo de pedido «Comí allí», ruido «muy bajo», «buena música») |
 | Cuesta aparcar | Reseña («Es algo difícil aparcar») |
 | Aparcabicis en el cruce | Mapa de Google |
-| Antes Bocca di Forno | Misma dirección y teléfono en Restaurant Guru, Mindtrip, Tripadvisor y Glovo |
 
 ## Qué no se ha inventado
 
@@ -39,10 +38,10 @@ No se han puesto años de historia, nombre del pizzero, horas de fermentación, 
 ## SEO local
 
 - `title`: «Pizza del Barrio · Pizza napolitana para llevar en Dénia (Saladar)»
-- `description` con dirección, rango de precios, teléfono, horario y «Antes Bocca di Forno», para captar a quien busque el nombre antiguo
+- `description` con dirección, rango de precios, teléfono y horario
 - H1 visible «Napolitana para llevar.», que para lectores y buscadores dice «Pizza napolitana para llevar en Dénia», con «Saladar, Dénia» justo encima
 - Carta completa en HTML (indexable, no en imagen ni PDF)
-- JSON-LD `Restaurant` con `alternateName: Bocca di Forno`, `sameAs` (Instagram), imagen, dirección, coordenadas, horario y `hasMenu` con las 24 pizzas, precios y 10 imágenes
+- JSON-LD `Restaurant` con `sameAs` (Instagram), imagen, dirección, coordenadas, horario y `hasMenu` con las 24 pizzas, precios y 10 imágenes
 - **No** se incluye `aggregateRating` en el schema: Google no permite marcar como propias las valoraciones recogidas en otra plataforma
 
 ## Próximos contenidos recomendados

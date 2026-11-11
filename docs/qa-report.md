@@ -48,10 +48,11 @@ HTML 50 KB, CSS 36 KB, JS 6 KB y fuentes 98 KB. El hero pesa 28 KB en móvil (80
 
 ## Autocrítica final (mirada del propietario)
 - **¿«Hostia, qué web»?** Sí, por dos momentos: la foto real de su horno a pantalla completa con «NAPOLITANA PARA LLEVAR», y su caja cerrándose sobre una pizza real con su teléfono impreso.
-- **¿Es suya?** Sí. Usa su lema, sus fotos, su horno, sus manos y sus rótulos, su local, su fachada antigua, su Instagram y el trébol de sus respuestas.
+- **¿Es suya?** Sí. Usa su lema, sus fotos, su horno, sus manos y sus rótulos, su local, su Instagram y el trébol de sus respuestas.
 - **¿Dan hambre las pizzas?** Sí: 10 fotos reales de producto. La ilustración ha desaparecido.
-- **¿Algo hecho «porque sí»?** La fila de datos (400–450 °C, a mano, Bronte) se parece a un patrón habitual, pero los tres datos son concretos y verificados, así que se queda. El trébol que gira es un guiño mínimo.
+- **¿Algo hecho «porque sí»?** La fila de datos (400–450 °C, a mano, Bronte) se parece a un patrón habitual, pero los tres datos son concretos y verificados, así que se queda. El trébol del pie es un guiño mínimo (desde el 11/11/2026 se balancea en lugar de girar).
 - **¿Algo útil pero mediocre?** La lista mezclaba filas con foto y sin foto. Se corrigió el 11/11/2026: ahora va entera en formato pizarra, sin fotos. Las fotos se reservan para la estrella, las destacadas y la Trufa.
+- **¿Algo que no le interese al negocio?** La referencia a Bocca di Forno. Se quitó el 11/11/2026 de la web, la meta description y el JSON-LD. El horario del pie, que aún abría el domingo, se corrigió también.
 
 ## Comparación v1 → v2
 | | v1 | v2 |
@@ -63,7 +64,7 @@ HTML 50 KB, CSS 36 KB, JS 6 KB y fuentes 98 KB. El hero pesa 28 KB en móvil (80
 | Carta | 24 filas iguales | Estrella, destacadas, cartel de la Trufa y lista en formato pizarra |
 | Personas | Ninguna | Manos del pizzero en vídeo |
 | Pedido | Teléfono y Glovo | Teléfono, WhatsApp y Glovo |
-| Se conserva | — | Estado en vivo, arquitectura, teléfono gigante, mapa, horario, aparcar, Bocca di Forno, «¡Hasta pronto! 🍀», SEO y accesibilidad |
+| Se conserva | — | Estado en vivo, arquitectura, teléfono gigante, mapa, horario, aparcar, «¡Hasta pronto! 🍀», SEO y accesibilidad |
 
 ## Reproducir
 ```bash

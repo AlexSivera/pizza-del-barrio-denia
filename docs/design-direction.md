@@ -28,7 +28,6 @@ Sale de su modelo de negocio (para llevar), de su logo y de su bio, y acaba en l
 | Margherita en su caja | Mano con la caja abierta | Instagram del negocio |
 | Pizza Trufa y local | Interior con barra | Instagram del negocio |
 | Proceso | 3 clips (masa, horno, jamón y rúcula) | Reel de @ivan.g.lpz para el negocio, con crédito |
-| Antes Bocca di Forno | Fachada antigua | Web oficial archivada |
 
 Reglas: producto grande, cenital y sin manipular. El proceso va en vertical y en movimiento. Nada de stock ni de ilustraciones en lugar del producto.
 
@@ -66,7 +65,9 @@ Las tres están alojadas en local, con woff2 latino (98 KB en total).
 - Con `prefers-reduced-motion` no hay sticky, la caja queda estática y los vídeos llevan controles.
 
 ## Lo que se mantiene de la v1
-El estado en vivo (ahora como cartel pegado sobre la foto), la arquitectura one-page, el teléfono gigante, el mapa esquemático, el horario con el día marcado, el consejo para aparcar, «Bocca di Forno» tachado (ahora con la foto de la fachada) y «¡Hasta pronto! 🍀».
+El estado en vivo (ahora como cartel pegado sobre la foto), la arquitectura one-page, el teléfono gigante, el mapa esquemático, el horario con el día marcado, el consejo para aparcar y «¡Hasta pronto!» con el trébol.
+
+**11/11/2026:** se quita toda mención a Bocca di Forno (bloque con la fachada antigua, pie, meta description y `alternateName` del JSON-LD), para no seguir asociando el negocio al nombre anterior. El trébol del pie se redibuja (cuatro hojas en diagonal y tallo hacia abajo) y se balancea en lugar de girar, porque al girar el tallo daba vueltas.
 
 ## Anti-repetición
 Este proyecto no usa papel crema, tickets ni comandas, cortinas, fachadas que se abren ni nubes de reseñas. Las tipografías no se han usado antes en la agencia. La caja kraft es un objeto propio de este negocio, no un fondo de papel genérico.

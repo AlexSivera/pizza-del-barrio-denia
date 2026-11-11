@@ -20,7 +20,6 @@ Todo lo demás es secundario.
 | Pedir | Teléfono como acción principal (sin comisión). Glovo como segunda opción. Barra fija abajo en móvil |
 | Llegar | Dirección, esquema del cruce, consejo de aparcamiento (la queja de las reseñas), botón a Google Maps |
 | Confianza | 4,9 con 262 reseñas en Google. Citas cortas y reales unidas a la pizza de la que hablan |
-| Continuidad | Aviso «Antes Bocca di Forno» para quien buscaba el nombre antiguo |
 
 ## Acción principal
 
@@ -33,8 +32,8 @@ Todo lo demás es secundario.
 1. **El horno** (hero): qué es, dónde, si está abierto y la acción principal. Al bajar, la pizza sale del horno.
 2. **La carta**: la pizza elegida se dibuja con sus ingredientes reales. Filtros: Con tomate · Blancas · Con pesto · Vegetarianas.
 3. **¿Cómo la quieres?**: recoger (el teléfono en grande), a domicilio (Glovo) o cenar aquí.
-4. **En el barrio**: esquema del cruce, horario de la semana con el día de hoy marcado, aparcamiento, «antes Bocca di Forno».
-5. **Despedida**: «¡Hasta pronto! 🍀», en la voz del propietario.
+4. **En el barrio**: esquema del cruce, horario de la semana con el día de hoy marcado, aparcamiento e Instagram.
+5. **Despedida**: «¡Hasta pronto!» con su trébol, en la voz del propietario.
 
 ## Comportamiento móvil
 

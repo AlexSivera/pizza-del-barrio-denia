@@ -156,7 +156,8 @@ function mapSvg() {
         </svg>`;
 }
 
-const CLOVER = `<svg viewBox="-50 -50 100 100" width="1em" height="1em"><g fill="currentColor">${[0, 90, 180, 270].map((a) => `<path transform="rotate(${a})" d="M0,-4C-4,-16 -26,-22 -26,-36C-26,-46 -14,-50 -7,-42C-4,-39 -1,-36 0,-33C1,-36 4,-39 7,-42C14,-50 26,-46 26,-36C26,-22 4,-16 0,-4Z"/>`).join('')}<path d="M0,0C4,14 10,30 22,44" stroke="currentColor" stroke-width="6" fill="none" stroke-linecap="round"/></g></svg>`;
+// Trébol de cuatro hojas en diagonal, con un tallo corto y afilado que sale hacia abajo entre las dos hojas inferiores.
+const CLOVER = `<svg viewBox="-46 -46 92 100" width="1em" height="1.09em"><g fill="currentColor">${[45, 135, 225, 315].map((a) => `<path transform="rotate(${a})" d="M0,-3C-3,-12 -22,-17 -22,-30C-22,-39 -12,-42 -6,-36C-3,-33 -1,-30 0,-28C1,-30 3,-33 6,-36C12,-42 22,-39 22,-30C22,-17 3,-12 0,-3Z"/>`).join("")}<path d="M-3,2C-2,18 2,34 9,50C10,52 14,51 13,48C7,33 4,18 3,2Z"/></g></svg>`;
 const PHONE_ICON = `<svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg>`;
 const WA_ICON = `<svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.4.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.2.3-.9.9-.9 2.2s1 2.6 1.1 2.7c.1.2 1.9 2.9 4.6 4 1.7.7 2.4.8 3.2.7.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.2-.2-.4-.3z"/></svg>`;
 const IG_ICON = `<svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M12 7.3A4.7 4.7 0 1 0 12 16.7 4.7 4.7 0 0 0 12 7.3zm0 7.8a3.1 3.1 0 1 1 0-6.2 3.1 3.1 0 0 1 0 6.2zM17 6a1.1 1.1 0 1 0 0 2.2A1.1 1.1 0 0 0 17 6zM21.9 7.9c-.1-1.6-.4-3-1.6-4.2S17.7 2.2 16.1 2.1C14.5 2 9.5 2 7.9 2.1 6.3 2.2 4.9 2.5 3.7 3.7S2.2 6.3 2.1 7.9C2 9.5 2 14.5 2.1 16.1c.1 1.6.4 3 1.6 4.2s2.6 1.5 4.2 1.6c1.6.1 6.6.1 8.2 0 1.6-.1 3-.4 4.2-1.6s1.5-2.6 1.6-4.2c.1-1.6.1-6.6 0-8.2zM19.8 18c-.3.9-1 1.5-1.9 1.9-1.3.5-4.4.4-5.9.4s-4.6.1-5.9-.4A3.3 3.3 0 0 1 4.2 18c-.5-1.3-.4-4.4-.4-5.9s-.1-4.6.4-5.9c.3-.9 1-1.5 1.9-1.9 1.3-.5 4.4-.4 5.9-.4s4.6-.1 5.9.4c.9.3 1.5 1 1.9 1.9.5 1.3.4 4.4.4 5.9s.1 4.6-.4 5.9z"/></svg>`;
@@ -174,7 +175,6 @@ function jsonLd() {
     '@context': 'https://schema.org',
     '@type': 'Restaurant',
     name: 'Pizza del Barrio',
-    alternateName: 'Bocca di Forno',
     url: SITE_URL + '/',
     image: SITE_URL + '/img/hero-horno-1400.webp',
     description: 'Pizza napolitana para llevar en el Saladar (Dénia). Horno a 400–450 °C. Recogida, WhatsApp, Glovo y barra en el local.',

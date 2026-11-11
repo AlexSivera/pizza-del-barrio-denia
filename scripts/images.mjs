@@ -30,7 +30,6 @@ const JOBS = [
   ['ig-hd/DMfq9JeoSH5.jpg', 'pz-margherita', [480, 900], { crop: [0, 200, 1440, 1440] }],
   ['ig-hd/DT-_--jjBUu.jpg', 'pz-trufa', [480, 900], { crop: [0, 420, 1200, 780] }],
   ['ig-hd/DT-_--jjBUu.jpg', 'local-interior', [600, 1100], {}],
-  ['owner/fachada-bocca.png', 'fachada-bocca', [545], { q: 0.85 }],
 ];
 
 const toUrl = (p) => 'file:///' + p.split(path.sep).join('/');
