@@ -9,7 +9,7 @@ const require = createRequire(import.meta.url);
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const PW = process.env.PLAYWRIGHT_CORE || 'C:/Users/Alex Sivera/AppData/Local/npm-cache/_npx/9833c18b2d85bc59/node_modules/playwright-core';
 const { chromium } = require(PW);
-const SRC = path.join(root, '.qa', 'photos', 'video', 'DYu7IiOODqQ-1.mp4');
+const SRC = path.join(root, '.qa', 'photos', 'video', 'original.mp4');
 const OUT = path.join(root, 'src', 'media');
 
 // [nombre, inicio s, fin s]
@@ -18,7 +18,7 @@ const CLIPS = [
   ['horno', 30.2, 36.6],
   ['jamon', 43.0, 49.4],
 ];
-const W = 540, H = 960;
+const W = 720, H = 1280; // resolución nativa del vídeo, sin reescalar
 const toUrl = (p) => 'file:///' + p.split(path.sep).join('/');
 
 fs.mkdirSync(OUT, { recursive: true });
@@ -37,9 +37,9 @@ for (const [name, t0, t1] of CLIPS) {
     const mime = types.find((t) => MediaRecorder.isTypeSupported(t));
     await new Promise((r) => { v.onseeked = r; v.currentTime = t0; });
     g.drawImage(v, 0, 0, W, H);
-    const poster = c.toDataURL('image/webp', 0.8);
+    const poster = c.toDataURL('image/webp', 0.86);
     const stream = c.captureStream(30);
-    const rec = new MediaRecorder(stream, { mimeType: mime, videoBitsPerSecond: 1_600_000 });
+    const rec = new MediaRecorder(stream, { mimeType: mime, videoBitsPerSecond: 3_000_000 });
     const chunks = [];
     rec.ondataavailable = (e) => e.data.size && chunks.push(e.data);
     const done = new Promise((r) => (rec.onstop = r));
