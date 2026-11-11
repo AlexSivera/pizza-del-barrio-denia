@@ -300,16 +300,14 @@ button { font: inherit; color: inherit; }
 .group--verde .dot { background: var(--pesto); }
 .group__n { font: 600 .82rem/1 var(--f-text); color: var(--albahaca-txt); letter-spacing: .02em; text-transform: none; }
 .rows { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: clamp(24px, 4vw, 56px); }
-.row { display: grid; grid-template-columns: 64px minmax(0, 1fr) auto; gap: 14px; align-items: center; padding: 12px 0; border-bottom: 1px dashed rgba(246, 235, 215, .25); }
-.row__thumb { width: 64px; height: 64px; border-radius: 50%; overflow: hidden; display: grid; place-items: center; }
-.row__img { width: 100%; height: 100%; object-fit: cover; transform: scale(1.22); }
-.row__dot { width: 12px; height: 12px; border-radius: 50%; }
-.group--roja .row__dot { background: #E0492B; }
-.group--blanca .row__dot { background: #FFF6E8; }
-.group--verde .row__dot { background: var(--pesto); }
-.row__name { font-weight: 700; font-size: 1.08rem; margin-right: 6px; }
-.row__ing { display: block; font-size: .9rem; line-height: 1.38; color: var(--albahaca-txt); margin-top: 2px; }
-.row__price { font-weight: 700; font-variant-numeric: tabular-nums; white-space: nowrap; }
+/* Pizarra: nombre · puntos · precio */
+.row { padding: 16px 0 15px; border-bottom: 1px solid rgba(246, 235, 215, .12); }
+.row__head { display: flex; align-items: baseline; gap: 10px; margin: 0 0 5px; }
+.row__name { font-family: var(--f-display); font-weight: 900; text-transform: uppercase; font-size: 1.6rem; line-height: 1; letter-spacing: .01em; }
+.row__lead { flex: 1 1 auto; min-width: 24px; align-self: baseline; height: 0; border-bottom: 3px dotted rgba(246, 235, 215, .32); transform: translateY(-4px); }
+.row__price { font-family: var(--f-display); font-weight: 900; font-size: 1.55rem; line-height: 1; color: var(--fuego); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.row__ing { margin: 0; font-size: .92rem; line-height: 1.42; color: var(--albahaca-txt); max-width: 46ch; }
+.row__ing .tag { margin-right: 8px; }
 .all__foot { display: grid; grid-template-columns: 1fr 1fr; gap: 24px 48px; margin-top: 40px; align-items: start; }
 .drinks-box { border-top: 2px solid rgba(246, 235, 215, .45); padding-top: 14px; }
 .drinks-box .h4 { color: var(--albahaca-txt); }
@@ -476,8 +474,8 @@ button { font: inherit; color: inherit; }
   .status { font-size: .78rem; padding: 5px 10px; }
   .pie__cols { grid-template-columns: 1fr; }
   .addr__street { font-size: 2rem; }
-  .row { grid-template-columns: 52px minmax(0, 1fr) auto; gap: 12px; }
-  .row__thumb { width: 52px; height: 52px; }
+  .row__name { font-size: 1.45rem; }
+  .row__price { font-size: 1.4rem; }
 }
 
 @media (max-width: 400px) {

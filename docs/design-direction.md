@@ -57,7 +57,7 @@ Las tres están alojadas en local, con woff2 latino (98 KB en total).
 
 ## Composición
 - Ritmo de color: noche (horno) → noche con caja kraft → verde (carta) → noche (proceso) → tomate (pedido) → noche (barrio) → kraft (pie, el fondo de la caja).
-- La carta está editada: 1 estrella grande, 3 destacadas, 1 «fuera de Glovo» en formato cartel y la lista completa en dos columnas con miniaturas reales cuando hay foto.
+- La carta está editada: 1 estrella grande, 3 destacadas, 1 «fuera de Glovo» en formato cartel y la lista completa en dos columnas, en formato pizarra (nombre · puntos · precio), sin fotos para que todas las filas pesen igual.
 
 ## Movimiento
 - Caja ligada al scroll (momento firma).

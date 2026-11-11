@@ -81,10 +81,10 @@ function localHtml() {
 function listHtml() {
   return GROUPS.map((g) => {
     const items = PIZZAS.filter((p) => g.bases.includes(p.base));
+    // Formato pizarra: nombre · puntos · precio, y debajo los ingredientes. Sin fotos, para que todas las filas pesen igual.
     const rows = items.map((p) => `            <li class="row" data-group="${g.id}"${p.veg ? ' data-veg' : ''}>
-              <span class="row__thumb">${p.photo ? photo(p.photo, [480], '64px', '', { cls: 'row__img' }) : '<span class="row__dot" aria-hidden="true"></span>'}</span>
-              <span class="row__main"><span class="row__name">${esc(p.name)}</span>${p.top ? '<span class="tag tag--top">Top</span>' : ''}${p.veg ? '<span class="tag tag--veg">Veg.</span>' : ''}<span class="row__ing">${esc(p.ingredients)}</span></span>
-              <span class="row__price">${eur(p.price)}</span>
+              <p class="row__head"><span class="row__name">${esc(p.name)}</span><span class="row__lead" aria-hidden="true"></span><span class="row__price">${eur(p.price)}</span></p>
+              <p class="row__ing">${p.top ? '<span class="tag tag--top">Más pedida</span>' : ''}${p.veg ? '<span class="tag tag--veg">Veg.</span>' : ''}${esc(p.ingredients)}</p>
             </li>`).join('\n');
     return `        <section class="group group--${g.id}" data-group="${g.id}" aria-labelledby="g-${g.id}">
           <h4 class="group__t" id="g-${g.id}"><span class="dot" aria-hidden="true"></span>${g.name} <span class="group__n">${g.note} · ${items.length}</span></h4>

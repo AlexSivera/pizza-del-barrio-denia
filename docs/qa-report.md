@@ -51,7 +51,7 @@ HTML 50 KB, CSS 36 KB, JS 6 KB y fuentes 98 KB. El hero pesa 28 KB en móvil (80
 - **¿Es suya?** Sí. Usa su lema, sus fotos, su horno, sus manos y sus rótulos, su local, su fachada antigua, su Instagram y el trébol de sus respuestas.
 - **¿Dan hambre las pizzas?** Sí: 10 fotos reales de producto. La ilustración ha desaparecido.
 - **¿Algo hecho «porque sí»?** La fila de datos (400–450 °C, a mano, Bronte) se parece a un patrón habitual, pero los tres datos son concretos y verificados, así que se queda. El trébol que gira es un guiño mínimo.
-- **¿Algo útil pero mediocre?** Hay 14 pizzas sin foto en la lista, que solo llevan un punto de color. Se resolverá con fotos del cliente; inventarlas sería peor.
+- **¿Algo útil pero mediocre?** La lista mezclaba filas con foto y sin foto. Se corrigió el 11/11/2026: ahora va entera en formato pizarra, sin fotos. Las fotos se reservan para la estrella, las destacadas y la Trufa.
 
 ## Comparación v1 → v2
 | | v1 | v2 |
@@ -60,7 +60,7 @@ HTML 50 KB, CSS 36 KB, JS 6 KB y fuentes 98 KB. El hero pesa 28 KB en móvil (80
 | Hero | Horno ilustrado | Foto real del horno, con el estado en un cartel |
 | WOW | La pizza dibujada sale del horno | La pizza real entra en su caja y la tapa queda impresa con el teléfono |
 | Identidad | Inventada (verde oliva, Bagel Fat One, logo propio) | Basada en sus materiales: carteles, rotulador, caja kraft, «para llevar» |
-| Carta | 24 filas iguales | Estrella, destacadas, cartel de la Trufa y lista con miniaturas |
+| Carta | 24 filas iguales | Estrella, destacadas, cartel de la Trufa y lista en formato pizarra |
 | Personas | Ninguna | Manos del pizzero en vídeo |
 | Pedido | Teléfono y Glovo | Teléfono, WhatsApp y Glovo |
 | Se conserva | — | Estado en vivo, arquitectura, teléfono gigante, mapa, horario, aparcar, Bocca di Forno, «¡Hasta pronto! 🍀», SEO y accesibilidad |

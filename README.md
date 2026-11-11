@@ -18,7 +18,7 @@ Todo está en **`src/data/menu.mjs`**. Para cada pizza: nombre, precio, base, in
 
 - `star`: la estrella
 - `feature`: las destacadas
-- `card`: miniatura en la lista
+- `card`: tiene foto preparada, pero de momento no se muestra (la lista va sin fotos)
 
 Después hay que ejecutar `npm run build`.
 

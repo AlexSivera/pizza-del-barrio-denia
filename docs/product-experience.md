@@ -39,12 +39,12 @@ Todo lo demás es secundario.
 ## Comportamiento móvil
 
 - Barra fija inferior con **Llamar** y **Glovo**, que se oculta mientras se ve la sección de pedido para no duplicar.
-- En la carta, las pizzas con foto se ven grandes arriba y la lista completa lleva una miniatura real cuando existe. Los filtros van en una fila con desplazamiento lateral.
+- En la carta, las pizzas con foto se ven grandes arriba y la lista completa va en formato pizarra, sin fotos. Los filtros van en una fila con desplazamiento lateral.
 - El hero pone la foto del horno arriba, sin tapar, y el titular debajo. La caja ocupa 2,4 pantallas de scroll. Sin movimiento si el sistema pide reducirlo.
 
 ## Comportamiento escritorio
 
-- La carta empieza con la estrella a dos columnas, sigue con tres destacadas y el cartel de la Trufa, y termina con la lista completa en dos columnas.
+- La carta empieza con la estrella a dos columnas, sigue con tres destacadas y el cartel de la Trufa, y termina con la lista completa en dos columnas, en formato pizarra.
 - La cabecera muestra estado y teléfono en todo momento.
 
 ## Elementos diferenciales (v2)
