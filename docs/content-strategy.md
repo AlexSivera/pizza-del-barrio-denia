@@ -28,7 +28,7 @@ Evitado: «calidad y profesionalidad», «experiencia gastronómica», «autént
 > **11/11/2026:** los recuentos pequeños («Sale en 7 reseñas», «La nombran 8 reseñas», «salen en 9 reseñas») ya no se muestran en la web. Son cifras bajas y pueden restar en lugar de sumar. Se mantienen como datos de investigación, y en la web solo queda el 4,9 de media con el total de reseñas.
 | Cita en Italiana | Reseña de Google, literal |
 | «¡La joya del barrio!» | Título de una reseña en Tripadvisor, sep. 2026 |
-| 4,9 con 262 reseñas | Google Maps, 2 oct 2026 |
+| 4,9 con más de 250 reseñas | Google Maps: 262 el 2 oct 2026 y 277 después. Se muestra «más de 250» para que no caduque, y no una cifra redonda mayor que la real |
 | Barra y mesas dentro, ambiente tranquilo, buena música | Reseñas (tipo de pedido «Comí allí», ruido «muy bajo», «buena música») |
 | Cuesta aparcar | Reseña («Es algo difícil aparcar») |
 | Aparcabicis en el cruce | Mapa de Google |

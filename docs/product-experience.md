@@ -19,7 +19,7 @@ Todo lo demás es secundario.
 | Carta completa con precios | 24 pizzas en HTML (indexables), filtrables por base y por vegetariana, con aviso de precios y alérgenos |
 | Pedir | Teléfono como acción principal (sin comisión). Glovo como segunda opción. Barra fija abajo en móvil |
 | Llegar | Dirección, esquema del cruce, consejo de aparcamiento (la queja de las reseñas), botón a Google Maps |
-| Confianza | 4,9 con 262 reseñas en Google. Citas cortas y reales unidas a la pizza de la que hablan |
+| Confianza | 4,9 con más de 250 reseñas en Google. Citas cortas y reales unidas a la pizza de la que hablan |
 
 ## Acción principal
 

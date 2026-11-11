@@ -118,5 +118,5 @@ export const CONTACT = {
   glovo: 'https://glovoapp.com/es/es/denia/stores/bocca-di-forno-denia',
   maps: 'https://www.google.com/maps/search/?api=1&query=Pizza%20del%20Barrio%2C%20Pg.%20del%20Saladar%2067%2C%20D%C3%A9nia',
   rating: '4,9',
-  reviews: 262,
+  reviews: 277, // dato de referencia (docs/venta.md). En la web se muestra «más de 250» para que no caduque
 };
